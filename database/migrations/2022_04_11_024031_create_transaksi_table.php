@@ -19,6 +19,8 @@ return new class extends Migration
             $table->date('tgl_transaksi');
             $table->string('jenis_transaksi');
             $table->bigInteger('nominal');
+            $table->unsignedBigInteger('created_by');
+            $table->unsignedBigInteger('updated_by');
             $table->timestamps();
 
             $table->foreign('id_rekening')->references('id')->on('rekening');

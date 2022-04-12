@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->unsignedBigInteger('id_nasabah');
             $table->string('no_rekening');
             $table->bigInteger('saldo');
+            $table->unsignedBigInteger('created_by');
+            $table->unsignedBigInteger('updated_by');
             $table->timestamps();
 
             $table->foreign('id_nasabah')->references('id')->on('nasabah');

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('nasabah', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_user');
             $table->string('nama');
             $table->text('alamat');
             $table->string('nik', 12);
@@ -22,7 +23,11 @@ return new class extends Migration
             $table->string('nama_ibu');
             $table->date('tgl_lahir');
             $table->string('no_telp');
+            $table->unsignedBigInteger('created_by');
+            $table->unsignedBigInteger('updated_by');
             $table->timestamps();
+
+            $table->foreign('id_user')->references('id')->on('users');
         });
     }
 

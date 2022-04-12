@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('code');
             $table->string('code_value');
+            $table->unsignedBigInteger('created_by'); 
+            $table->unsignedBigInteger('updated_by'); 
             $table->timestamps();
         });
     }
