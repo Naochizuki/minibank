@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    #darkModeToggle:checked ~ div.dark-mode-toggle-circle {
+        @apply translate-x-6;
+    }
+}

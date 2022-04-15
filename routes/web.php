@@ -15,7 +15,9 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
-Route::view("/", "home");
+Route::get("/home", function() {
+    return view("home");
+});
 Route::get("/login", [LoginController::class, "show"]);
 Route::get("/register", [RegisterController::class, "show"]);
 Route::get("/");
