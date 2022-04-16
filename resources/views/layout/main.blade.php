@@ -23,7 +23,7 @@
     <header>
         @include('layout.header')
     </header>
-    <main class="container bg-red-100 sm:bg-red-100 md:bg-sky-100 lg:bg-yellow-100">
+    <main class="container mx-auto sm:bg-red-100 md:bg-sky-100 lg:bg-yellow-100">
         @yield("content")
     </main>
     <footer></footer>

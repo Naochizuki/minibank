@@ -20,4 +20,4 @@ Route::get("/home", function() {
 });
 Route::get("/login", [LoginController::class, "show"]);
 Route::get("/register", [RegisterController::class, "show"]);
-Route::get("/");
+Route::get("/", [LoginController::class, "show"]);
