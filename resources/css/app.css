@@ -2,8 +2,954 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .active {
+        @apply bg-purple-900;
+        @apply w-full;
+        @apply before:absolute;
+        @apply before:right-0;
+        @apply before:w-2;
+        @apply before:h-full;
+        @apply before:bg-yellow-400;
+        @apply before:rounded-sm;
+        @apply dark:bg-indigo-900;
+    }
+
+    .flex-col-direc {
+        @apply flex;
+        @apply flex-col;
+    }
+
+    .flex-row-direc {
+        @apply flex;
+        @apply flex-row;
+    }
+
+    .flex-items-center {
+        @apply flex;
+        @apply items-center;
+    }
+
+    .justify-items-center {
+        @apply justify-center;
+        @apply items-center;
+    }
+
+    .justify-between-items-center {
+        @apply justify-between;
+        @apply items-center;
+    }
+
+    .justify-evenly-items-center {
+        @apply justify-evenly;
+        @apply items-center;
+    }
+
+    .transition-all-500 {
+        @apply transition-all;
+        @apply duration-500;
+    }
+
+    .transition-transform-500 {
+        @apply transition-transform;
+        @apply duration-500;
+    }
+
+    .transition-opacity-500 {
+        @apply transition-opacity;
+        @apply duration-500;
+    }
+
+    .top-left-0 {
+        @apply top-0;
+        @apply left-0;
+    }
+
+    .top-right-0 {
+        @apply top-0;
+        @apply right-0;
+    }
+
+    .vertical-navbar {
+        @apply w-16;
+        @apply md:w-40;
+        @apply h-screen;
+        @apply z-50;
+        @apply bg-purple-600;
+        @apply fixed;
+        @apply top-left-0;
+        @apply dark:bg-indigo-600;
+    }
+    
+    .vertical-active {
+        @apply w-36;
+    }
+
+    .label-minibank-container {
+        @apply relative;
+        @apply flex-items-center;
+        @apply h-14;
+    }
+
+    .label-minibank {
+        @apply absolute;
+        @apply w-12;
+        @apply left-4;
+        @apply flex;
+        @apply items-end;
+        @apply md:translate-x-4;
+    }
+
+    .label-minibank-first-letter {
+        @apply text-white;
+        @apply text-4xl;
+        @apply cursor-pointer;
+    }
+
+    .label-minibank-after-content {
+        @apply text-white;
+        @apply z-40;
+        @apply opacity-0;
+        @apply text-xs;
+        @apply md:opacity-100;
+        @apply md:text-lg;
+        @apply md:cursor-pointer;
+    }
+
+    .label-minibank-after-content-active {
+        @apply opacity-100;
+        @apply text-lg;
+    }
+
+    .navbar-content {
+        @apply flex-col-direc;
+        @apply mt-8;
+    }
+
+    .navbar-item-container {
+        @apply relative;
+        @apply w-full;
+        @apply h-16;
+        @apply flex-items-center;
+        @apply text-white;
+        @apply cursor-pointer;
+        @apply hover:bg-purple-900;
+        @apply md:h-20;
+        @apply dark:hover:bg-indigo-900;
+    }
+
+    .navbar-item-link {
+        @apply absolute;
+        @apply gap-1;
+        @apply w-36;
+        @apply flex;
+        @apply justify-between-items-center;
+        @apply right-3;
+        @apply group-hover:scale-105;
+        @apply ease-out;
+        @apply md:flex-col-reverse;
+        @apply md:gap-0;
+        @apply md:right-0;
+        @apply md:w-full;
+        @apply md:justify-start;
+    }
+
+    .navbar-item-link-active {
+        @apply w-30;
+    }
+
+    .navbar-item-name {
+        @apply font-semibold;
+        @apply -translate-x-1;
+        @apply md:translate-x-0;
+    }
+
+    .navbar-item-icon {
+        @apply h-8;
+        @apply w-8;
+        @apply flex-items-center;
+    }
+
+    .nav-icon {
+        @apply text-2xl;
+    }
+
+    .top-navbar-container {
+        @apply w-full;
+        @apply h-14;
+        @apply flex-row-direc;
+        @apply shadow-sm;
+        @apply shadow-slate-400;
+        @apply fixed;
+        @apply top-right-0;
+        @apply z-40;
+        @apply pr-3;
+        @apply bg-white;
+        @apply dark:bg-slate-800;
+        @apply dark:shadow-zinc-900;
+    }
+
+    .top-navbar {
+        @apply relative;
+        @apply flex-row-direc;
+        @apply justify-between-items-center;
+        @apply grow;
+        @apply pl-6;
+        @apply z-50;
+        @apply md:justify-between;
+    }
+
+    .top-navbar-active {
+        @apply pl-2;
+    }
+
+    .navbar-fill {
+        @apply w-16;
+        @apply md:w-36;
+    }
+
+    .navbar-fill-active {
+        @apply w-36;
+    }
+
+    .top-navbar-input-search {
+        @apply border;
+        @apply border-solid;
+        @apply border-slate-400;
+        @apply rounded-md;
+        @apply focus:outline-none;
+        @apply pl-8;
+        @apply w-56;
+        @apply sm:w-72;
+        @apply lg:w-96;
+    }
+
+    .top-navbar-input-search-active {
+        @apply w-48;
+        @apply sm:w-72;
+        @apply lg:w-96;
+    }
+
+    .top-navbar-input-search-label {
+        @apply text-slate-400;
+        @apply absolute;
+        @apply left-1;
+        @apply -top-0.5;
+        @apply flex-row-direc;
+        @apply items-center;
+        @apply gap-1;
+    }
+
+    .navibar {
+        @apply md:w-76;
+
+    }
+
+    .mail-notif-container {
+        @apply hidden;
+        @apply md:block;
+        @apply md:w-28;
+        @apply md:h-10;
+        @apply md:flex;
+        @apply md:gap-3;
+        @apply md:justify-end;
+    }
+
+    .mail-notif-item {
+        @apply md:flex;
+        @apply md:justify-items-center;
+        @apply md:h-full;
+        @apply md:w-10;
+        @apply md:transition-all;
+        @apply md:duration-300;
+        @apply md:group-hover:text-3xl;
+        @apply md:group-hover:text-slate-600;
+        @apply md:group-hover:text-slate-200;
+    }
+
+    .mail-notif-container {
+        @apply md:text-2xl;
+        @apply dark:text-white;
+    }
+
+    .profile-container {
+        @apply absolute;
+        @apply top-0;
+        @apply right-1;
+        @apply w-36;
+        @apply h-14;
+        @apply pt-1;
+        @apply overflow-hidden;
+        @apply transition-all-500;
+        @apply border;
+        @apply border-solid;
+        @apply border-transparent;
+        @apply rounded-md;
+        @apply bg-white;
+        @apply sm:w-46;
+        @apply dark:bg-slate-800;
+    }
+    
+    .profile-container-active {
+        @apply w-34;
+        @apply sm:w-46;
+    }
+    
+    .profile-container-click {
+        @apply h-82;
+        @apply border-slate-400;
+        @apply shadow-md;
+        @apply shadow-slate-400;
+        @apply md:h-58;
+        @apply dark:border-zinc-900;
+        @apply dark:shadow-zinc-900;
+    }
+
+    .profile-picture-container {
+        @apply relative;
+        @apply w-full;
+        @apply h-12;
+        @apply flex;
+        @apply items-center;
+        @apply cursor-pointer;
+        @apply dark:text-white;
+    }
+
+    .user-name-container {
+        @apply w-24;
+        @apply transition-all-500;
+        @apply sm:w-34;
+    }
+
+    .user-name-container-active {
+        @apply w-22;
+        @apply sm:w-34;
+    }
+
+    .user-name {
+        @apply text-center;
+        @apply text-2xs;
+    }
+
+    .picture-container {
+        @apply w-10;
+        @apply h-10;
+        @apply flex;
+        @apply justify-items-center;
+    }
+    
+    .profile-picture {
+        @apply w-full;
+        @apply h-full;
+        @apply rounded-full;
+        @apply ring;
+        @apply ring-2;
+        @apply ring-slate-400;
+        @apply bg-white;
+    }
+
+    .profile-picture-click {
+        @apply w-7;
+        @apply h-7;
+    }
+
+    .menuToggle {
+        @apply flex-col-direc;
+    }
+
+    .menuToggle-ul {
+        @apply w-full;
+        @apply flex-col-direc;
+        @apply mb-0.5;
+    }
+
+    .menuToggle-ul li {
+        @apply h-14;
+        @apply p-2;
+        @apply mx-1;
+        @apply rounded-lg;
+        @apply transition-all;
+        @apply duration-100;
+        @apply hover:bg-purple-600;
+        @apply dark:hover:bg-indigo-900;
+    }
+    
+    .icon-menu {
+        @apply min-w-[26px];
+        @apply flex;
+        @apply items-center;
+    }
+
+    .menu-name {
+        @apply transition-transform;
+        @apply duration-150;
+        @apply group-hover:translate-x-1;
+    }
+    
+    .icon {
+        @apply text-xl;
+    }
+
+    .fa-gear {
+        @apply group-hover:animate-halfspin;
+    }
+
+    .fa-envelope {
+        @apply origin-top;
+        @apply group-hover:animate-updown;
+    }
+
+    .fa-bell {
+        @apply origin-top;
+        @apply group-hover:animate-shake; 
+    }
+
+    .menuToggle-item {
+        @apply flex;
+        @apply w-full;
+        @apply h-full;
+        @apply items-center;
+        @apply transition-all;
+        @apply duration-100;
+        @apply group-hover:text-white;
+        @apply dark:text-white;
+        @apply dark:group-hover:text-slate-200;
+    }
+
+    .btn-container, .btn-dark-container {
+        @apply relative;
+        @apply w-full;
+        @apply h-14;
+        @apply before:absolute;
+        @apply before:-top-0.5;
+        @apply before:w-11/12;
+        @apply before:left-[4.1666665%];
+        @apply before:h-px;
+        @apply before:bg-slate-300;
+        @apply before:rounded-xl;
+        @apply dark:before:bg-zinc-900;
+    }
+
+    .btn-dark-container {
+        @apply mb-1.5;
+    }
+
+    .btn {
+        @apply flex;
+        @apply items-center;
+        @apply flex-nowrap;
+        @apply w-logout;
+        @apply h-full;
+        @apply mx-1;
+        @apply p-2;
+        @apply rounded-lg;
+        @apply transition-all;
+        @apply duration-100;
+        @apply transition-all;
+        @apply duration-100;
+        @apply group-hover:text-white;
+        @apply group-hover:bg-purple-800;
+        @apply dark:group-hover:bg-indigo-900;
+        @apply dark:text-white;
+        @apply dark:group-hover:text-slate-200;
+    }
+
+    .dark-mode-button-container {
+        @apply relative;
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+        @apply w-logout;
+        @apply h-full;
+        @apply mx-1;
+        @apply p-2;
+    }
+
+    .title-menu {
+        @apply flex;
+        @apply cursor-pointer;
+        @apply group-hover:text-slate-500;
+        @apply dark:text-white;
+    }
+
+    .dark-mode-button {
+        @apply absolute;
+        @apply flex;
+        @apply bottom-2;
+        @apply left-1/2;
+        @apply -ml-4;
+        @apply w-8;
+        @apply h-1;
+        @apply justify-evenly-items-center;
+        @apply bg-sky-300;
+        @apply rounded-md;
+        @apply cursor-pointer;
+        @apply sm:relative;
+        @apply sm:ml-0;
+        @apply sm:left-0;
+        @apply sm:bottom-0;
+        @apply dark:bg-slate-400;
+    }
+
+    .dark-mode-button-indicator {
+        @apply absolute;
+        @apply left-0;
+        @apply flex;
+        @apply items-center;
+        @apply z-10;
+        @apply w-2;
+        @apply h-2;
+        @apply bg-yellow-400;
+        @apply rounded-full;
+        @apply dark:bg-black;
+    }
+
+    .main {
+        @apply flex;
+        @apply flex-row;
+        @apply min-h-screen;
+        @apply bg-gray-300;
+        @apply dark:bg-slate-700;
+    }
+
+    .main-fill-vertical {
+        @apply w-20;
+        @apply ml-5;
+        @apply md:w-40;
+    }
+    
+    .main-fill-vertical-active {
+        @apply w-40;
+    }
+    
+    .main-fill-second {
+        @apply flex;
+        @apply flex-col;
+        @apply grow;
+    }
+
+    .main-fill-horizontal {
+        @apply h-14;
+    }
+
+    .main-container {
+        @apply flex;
+        @apply py-5;
+        @apply md:p-6;
+        @apply justify-end;
+    }
+
+    .main-content {
+        @apply flex;
+        @apply flex-col;
+        @apply gap-2;
+        @apply w-full;
+    }
+
+    .main-content-active {
+        @apply w-10/12;
+    }
+
+    .greeting {
+        @apply flex;
+        @apply flex-col;
+        @apply gap-2;
+        @apply w-user-greeting;
+        @apply p-2;
+        @apply m-2;
+        @apply border;
+        @apply border-solid;
+        @apply border-slate-700;
+        @apply rounded;
+        @apply shadow-md;
+        @apply shadow-slate-700;
+        @apply bg-white;
+        @apply dark:bg-slate-800;
+        @apply dark:text-white;
+    }
+
+    .greet {
+        @apply font-bold;
+        @apply text-2xl;
+    }
+
+    .user-account {
+        @apply text-red-500;
+    }
+
+    .date {
+        @apply font-semibold;
+    }
+
+    .statistic-container {
+        @apply flex;
+        @apply flex-col;
+        @apply gap-2;
+        @apply w-user-greeting;
+        @apply p-2;
+        @apply m-2;
+        @apply border;
+        @apply border-solid;
+        @apply border-slate-700;
+        @apply rounded;
+        @apply shadow-md;
+        @apply shadow-slate-700;
+        @apply bg-white;
+        @apply dark:bg-slate-800;
+        @apply dark:text-white;
+    }
+
+    .title-statistic {
+        @apply font-bold;
+        @apply text-xl;
+        @apply flex;
+        @apply justify-center;
+    }
+
+    .statistic-category {
+        @apply flex;
+        @apply flex-col;
+        @apply w-full;
+        @apply p-2;
+        @apply gap-2;
+        @apply sm:flex-row;
+        @apply lg:gap-4;
+        @apply xl:gap-8;
+    }
+
+    .s-category {
+        @apply w-full;
+        @apply border;
+        @apply border-solid;
+        @apply border-slate-700;
+        @apply shadow-sm;
+        @apply shadow-slate-700;
+        @apply rounded;
+    }
+
+    .s-category-name {
+        @apply h-22;
+        @apply p-2;
+        @apply flex;
+        @apply flex-row;
+        @apply gap-4;
+        @apply justify-between;
+        @apply items-center;
+        @apply bg-purple-600;
+        @apply text-white;
+        @apply dark:bg-indigo-600;
+    }
+    
+    .s-c-name-icon {
+        @apply h-full;
+        @apply flex;
+        @apply justify-center;
+        @apply items-center;
+    }
+    
+    .scni {
+        @apply text-7xl;
+        @apply sm:text-5xl;
+    }
+    
+    .s-c-name-detail {
+        @apply flex;
+        @apply flex-col;
+        @apply items-end;
+        @apply sm:text-2xs;
+        @apply lg:text-base;
+    }
+
+    .s-detail {
+        @apply p-2;
+        @apply my-1;
+        @apply flex;
+        @apply flex-row;
+        @apply justify-between;
+        @apply text-purple-600;
+        @apply dark:text-indigo-600;
+    }
+
+    .detail-name {
+        @apply font-semibold;
+    }
+
+    .detail-icon {
+        @apply text-lg;
+    }
+    
+    .transaction-info-container {
+        @apply flex;
+        @apply flex-col;
+        @apply gap-4;
+        @apply w-full;
+        @apply p-2;
+        @apply xl:flex-row;
+    }
+
+    .transaction-info-container-active {
+        @apply w-10/12;
+    }
+
+    .transaction-info-day, .transaction-info-week, .transaction-info-month {
+        @apply w-full;
+        @apply border;
+        @apply border-solid;
+        @apply border-slate-700;
+        @apply rounded;
+        @apply p-2;
+        @apply bg-white;
+        @apply shadow-md;
+        @apply shadow-slate-700;
+        @apply dark:bg-slate-800;
+        @apply dark:text-white;
+    }
+
+    .info {
+        @apply flex;
+        @apply justify-center;
+        @apply mb-4;
+    }
+
+    .title {
+        @apply font-bold;
+        @apply text-lg;
+    }
+
+    .transaction {
+        @apply flex;
+        @apply flex-row;
+        @apply justify-evenly;
+    }
+
+    .transaction-in-container, .transaction-out-container {
+        @apply border;
+        @apply border-solid;
+        @apply border-slate-700;
+        @apply rounded-sm;
+        @apply w-40;
+        @apply shadow-sm;
+        @apply shadow-slate-700;
+        @apply sm:w-56;
+        @apply lg:w-82;
+        @apply xl:w-40;
+    }
+
+    .transaction-name {
+        @apply flex;
+        @apply gap-2;
+        @apply bg-purple-600;
+        @apply w-full;
+        @apply h-10;
+        @apply p-2;
+        @apply justify-center;
+        @apply text-white;
+        @apply font-semibold;
+        @apply cursor-default;
+        @apply dark:bg-indigo-600;
+    }
+
+    .mount-container {
+        @apply w-full;
+        @apply p-2;
+        @apply flex;
+        @apply justify-center;
+        @apply cursor-default;
+    }
+
+    .total-money-container {
+        @apply flex;
+        @apply flex-col;
+        @apply gap-3;
+        @apply w-total-money-box;
+        @apply m-2;
+        @apply p-2;
+        @apply border;
+        @apply border-solid;
+        @apply border-slate-700;
+        @apply rounded;
+        @apply shadow-md;
+        @apply shadow-slate-700;
+        @apply bg-white;
+        @apply dark:bg-slate-800;
+        @apply dark:text-white;
+    }
+
+    .title-total-money {
+        @apply font-bold;
+        @apply text-xl;
+    }
+
+    .total-money-value {
+        @apply flex;
+        @apply flex-col;
+        @apply gap-2;
+    }
+
+    .category-name, .pemasukan, .pengeluaran, .total {
+        @apply font-semibold;
+    }
+
+    .pemasukan {
+        @apply text-sky-700;
+    }
+
+    .pengeluaran {
+        @apply text-red-600;
+    }
+
+    .total {
+        @apply text-green-600;
+    }
+
+    .bank-information-container {
+        @apply flex;
+        @apply flex-col;
+        @apply gap-2;
+        @apply w-user-greeting;
+        @apply p-2;
+        @apply -ml-2;
+        @apply border;
+        @apply border-solid;
+        @apply border-slate-700;
+        @apply rounded;
+        @apply shadow-md;
+        @apply shadow-slate-700;
+        @apply bg-white;
+        @apply md:ml-0;
+        @apply dark:bg-slate-800;
+        @apply dark:text-white;
+    }
+
+    .setting-nav {
+        @apply h-10;
+        @apply p-2;
+        @apply mb-5;
+        @apply flex;
+        @apply flex-row;
+        @apply items-center;
+    }
+
+    .btn-configuration {
+        @apply flex;
+        @apply flex-row;
+        @apply gap-2;
+        @apply p-1;
+        @apply border;
+        @apply border-solid;
+        @apply border-blue-600;
+        @apply bg-blue-600;
+        @apply rounded;
+        @apply text-white;
+        @apply hover:bg-blue-400;
+        @apply hover:border-blue-400;
+    }
+
+    .bank-data {
+        @apply m-2;
+        @apply rounded-md;
+    }
+
+    .table-header, .table-tr, .table-td, .table-td-bank {
+        @apply p-2;
+    }
+    
+    .table-data {
+        @apply w-full;
+        @apply shadow-md;
+        @apply table;
+        @apply divide-y;
+    }
+    
+    .table-header {
+        @apply bg-purple-600;
+        @apply text-white;
+        @apply text-lg;
+        @apply font-bold;
+        @apply cursor-default;
+        @apply rounded-t-lg;
+        @apply table-header-group;
+        @apply dark:bg-indigo-600;
+    }
+
+    .table-header .table-td-bank {
+        @apply text-center;
+    }
+
+    .table-tr-group {
+        @apply table-row-group;
+    }
+    
+    .table-tr {
+        @apply table-row;
+        @apply divide-x;
+    }
+
+    .table.tr > .table-td-bank {
+        @apply first:text-center;
+        @apply text-left;
+    }
+
+    .num {
+        @apply text-center;
+    }
+    
+    .table-tr > .table-td {
+        @apply first:text-center;
+        @apply text-left;
+        @apply last:flex;
+        @apply last:flex-col;
+        @apply last:gap-1;
+        @apply last:items-center;
+        @apply last:justify-center;
+        @apply sm:last:flex-row;
+    }
+    
+    .table-td, .table-td-bank {
+        @apply table-cell;
+    }
+
+    .btn-add {
+        @apply flex;
+        @apply flex-row;
+        @apply gap-2;
+        @apply p-1;
+        @apply border;
+        @apply border-solid;
+        @apply border-blue-600;
+        @apply bg-blue-600;
+        @apply rounded;
+        @apply text-white;
+        @apply hover:bg-blue-400;
+        @apply hover:border-blue-400;
+    }
+
+    .btn-edit, .btn-delete {
+        @apply flex;
+        @apply justify-center;
+        @apply items-center;
+        @apply w-6;
+        @apply h-6;
+        @apply rounded-md;
+        @apply cursor-pointer;
+        @apply transition-all;
+        @apply duration-100;
+        @apply p-1;
+    }
+
+    .btn-edit {
+        @apply bg-yellow-400;
+        @apply hover:bg-yellow-200;
+    }
+
+    .btn-delete {
+        @apply bg-red-500;
+        @apply hover:bg-red-400;
+    }
+}
+
 @layer utilities {
-    #darkModeToggle:checked ~ div.dark-mode-toggle-circle {
+    #darkModeToggle:checked ~ div > div.dark-mode-toggle-circle {
         @apply translate-x-6;
     }
 }

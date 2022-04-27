@@ -5104,8 +5104,51 @@ window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 var myDarkCheck = document.querySelector('#darkModeToggle');
 var myHtml = document.querySelector('html');
+var myBody = document.querySelector('body');
+var myLogo = document.querySelector('#minibank-logo');
+var myVNavbar = document.querySelector('#vertical-navbar');
+var myTNavbar = document.querySelector('.top-navbar');
+var mylabelLogo = document.querySelector('#label-logo');
+var myNContent = document.querySelectorAll('#navbar-content');
+var myContentContainer = document.querySelectorAll('.navbar-item-container');
+var myAfterM = document.querySelector('#afterM');
+var myFill = document.querySelector('#navbar-fill');
+var mySearch = document.querySelector('#search');
+var myNCName = document.querySelectorAll('#navbar-content-name');
+var myProfile = document.querySelector('.profile-container');
+var myProfilePic = document.querySelector('.profile-picture-container');
+var myUserNameCon = document.querySelector('.user-name-container');
+var myPP = document.querySelector('.profile-picture');
+var myMFill = document.querySelector('.main-fill-vertical');
+var myMainContainer = document.querySelector('.main-content');
+var myTIC = document.querySelector('.transaction-info-container');
 myDarkCheck.addEventListener('click', function () {
-  myDarkCheck.checked ? myHtml.classList.add('dark') : myHtml.classList.remove('dark');
+  myHtml.classList.toggle('dark');
+});
+myLogo.addEventListener('click', function () {
+  if (window.innerWidth < 768) {
+    mySearch.classList.toggle('top-navbar-input-search-active');
+    myTNavbar.classList.toggle('top-navbar-active');
+    myAfterM.classList.toggle('label-minibank-after-content-active');
+    myVNavbar.classList.toggle('vertical-active');
+    myFill.classList.toggle('navbar-fill-active');
+    mylabelLogo.classList.toggle('translate-x-4');
+    myAfterM.classList.toggle('cursor-pointer');
+    myNContent.forEach(function (NContent) {
+      NContent.classList.toggle('navbar-item-link-active');
+    });
+    myProfile.classList.toggle('profile-container-active');
+    myUserNameCon.classList.toggle('user-name-container-active');
+    myMFill.classList.toggle('main-fill-vertical-active');
+    myMainContainer.classList.toggle('.main-content-active');
+    myTIC.classList.toggle('.transaction-info-container-active');
+  }
+
+  ;
+});
+myProfilePic.addEventListener('click', function () {
+  myProfile.classList.toggle('profile-container-click');
+  myPP.classList.toggle('profile-picture-click');
 });
 
 /***/ }),
