@@ -32,10 +32,10 @@ class LoginController extends Controller {
             // 'password' => 'admin123',
         ];
         if (Auth::Attempt($data)) {
+            return redirect ('dashboard');
+        }else{
             Session::flash('error', 'Email atau Password Salah');
             return redirect('/register');
-        }else{
-            return redirect ('dashboard');
         }
     }
 
