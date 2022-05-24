@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Session;
 
 use App\Http\Controllers\Controller;
@@ -28,11 +28,16 @@ class LoginController extends Controller {
         $data = [
             'nama' => $request->input('nama'),
             'password' => $request->input('password')
-            // 'nama' => 'admin@admin.com',
-            // 'password' => 'admin123',
         ];
-        if (Auth::Attempt($data)) {
-            return redirect ('dashboard');
+        if (Auth::Attempt($data)){
+            $role = DB::table('users')->where('nama', $data["nama"])->value('role');
+            if ($role == 'admin'){
+                return redirect('/admindashboard');
+            }
+            elseif($role == 'cust'){
+                return redirect('/dashboard');
+            }
+            // return redirect ('dashboard');
         }else{
             Session::flash('error', 'Email atau Password Salah');
             return redirect('/login');
@@ -41,5 +46,7 @@ class LoginController extends Controller {
 
     // Buat logout
     public function actionlogout() {
+        Auth::logout();
+        return redirect('/login');
     }
 }
