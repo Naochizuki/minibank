@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 class RegisterController extends Controller {
     // Buat view
     public function show() {
-        return "register";
+        return view('/register');
     }
 
     // Buat register
