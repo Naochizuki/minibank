@@ -41,4 +41,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function Nasabah(){
+        return $this->hasMany('App\Nasabah', 'id_user', 'id');
+    }
 }

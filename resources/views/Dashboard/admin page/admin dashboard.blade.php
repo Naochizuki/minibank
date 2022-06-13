@@ -12,18 +12,18 @@
         <div class="main-fill-horizontal"></div>
         <div class="main-container">
             <div class="main-content">
-                <div class="greeting">
-                    <span class="greet">Selamat Datang <span class="user-account">Abiyyu Dzaky Muhammad</span> di
+                <div class="greeting border-transparent shadow-lg rounded-xl">
+                    <span class="greet">Selamat Datang <span class="user-account text-green-400">Abiyyu Dzaky Muhammad</span> di
                         Sistem Informasi Minibank</span>
                     <span class="date">Rabu, 27 April 2022</span>
                 </div>
-                <div class="statistic-container">
+                <div class="statistic-container border-transparent shadow-lg rounded-xl">
                     <div class="title-statistic">
                         <span>Statistik Data Minibank</span>
                     </div>
-                    <div class="statistic-category">
-                        <div class="s-category">
-                            <div class="s-category-name">
+                    <div class="statistic-category border-transparent rounded-xl">
+                        <div class="s-category border-transparent shadow-lg rounded-xl">
+                            <div class="s-category-name rounded-t-xl">
                                 <div class="s-c-name-icon">
                                     <i class="fa-solid fa-users scni"></i>
                                 </div>
@@ -40,8 +40,8 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="s-category">
-                            <div class="s-category-name">
+                        <div class="s-category border-transparent shadow-lg rounded-xl">
+                            <div class="s-category-name rounded-t-xl">
                                 <div class="s-c-name-icon">
                                     <i class="fa-solid fa-money-bill-wave scni"></i>
                                 </div>
@@ -58,18 +58,18 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="s-category">
-                            <div class="s-category-name">
+                        <div class="s-category border-transparent shadow-lg rounded-xl">
+                            <div class="s-category-name rounded-t-xl">
                                 <div class="s-c-name-icon">
                                     <i class="fa-solid fa-coins scni"></i>
                                 </div>
-                                <div class="s-c-name-detail">
+                                <div class="s-c-name-detail rounded-t-xl">
                                     <span class="count-category">1</span>
                                     <span class="active-category">Transaksi Keluar</span>
                                     <span class="spesific-category">Keluar Hari Ini</span>
                                 </div>
                             </div>
-                            <a href="/" class="s-detail">
+                            <a href="/" class="s-detail rounded-t-xl">
                                 <span class="detail-name">Tambah Penarikan</span>
                                 <div class="detail-icon">
                                     <i class="fa-solid fa-circle-arrow-right"></i>
@@ -78,14 +78,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="transaction-info-container">
-                    <div class="transaction-info-day">
+                <div class="transaction-info-container border-transparent">
+                    <div class="transaction-info-day border-transparent shadow-lg rounded-xl">
                         <div class="info">
                             <span class="title">Transaksi hari ini</span>
                         </div>
                         <div class="transaction">
-                            <div class="transaction-in-container">
-                                <div class="transaction-name">
+                            <div class="transaction-in-container border-transparent shadow-lg rounded-xl">
+                                <div class="transaction-name rounded-t-xl">
                                     <div class="icon-transaction">
                                         <i class="fa-solid fa-money-bill-wave it"></i>
                                     </div>
@@ -96,8 +96,8 @@
                                     <span>100.000,00</span>
                                 </div>
                             </div>
-                            <div class="transaction-out-container">
-                                <div class="transaction-name">
+                            <div class="transaction-out-container border-transparent shadow-lg rounded-xl">
+                                <div class="transaction-name rounded-t-xl">
                                     <div class="icon-transaction">
                                         <i class="fa-solid fa-coins it"></i>
                                     </div>
@@ -110,13 +110,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="transaction-info-week">
+                    <div class="transaction-info-week border-transparent shadow-lg rounded-xl">
                         <div class="info">
                             <span class="title">Transaksi minggu ini</span>
                         </div>
                         <div class="transaction">
-                            <div class="transaction-in-container">
-                                <div class="transaction-name">
+                            <div class="transaction-in-container border-transparent shadow-lg rounded-xl">
+                                <div class="transaction-name rounded-t-xl">
                                     <div class="icon-transaction">
                                         <i class="fa-solid fa-money-bill-wave it"></i>
                                     </div>
@@ -127,8 +127,8 @@
                                     <span>100.000,00</span>
                                 </div>
                             </div>
-                            <div class="transaction-out-container">
-                                <div class="transaction-name">
+                            <div class="transaction-out-container border-transparent shadow-lg rounded-xl">
+                                <div class="transaction-name rounded-t-xl">
                                     <div class="icon-transaction">
                                         <i class="fa-solid fa-coins it"></i>
                                     </div>
@@ -141,13 +141,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="transaction-info-month">
+                    <div class="transaction-info-month border-transparent shadow-lg rounded-xl">
                         <div class="info">
                             <span class="title">Transaksi bulan ini</span>
                         </div>
                         <div class="transaction">
-                            <div class="transaction-in-container">
-                                <div class="transaction-name">
+                            <div class="transaction-in-container border-transparent shadow-lg rounded-t-xl">
+                                <div class="transaction-name rounded-t-xl">
                                     <div class="icon-transaction">
                                         <i class="fa-solid fa-money-bill-wave it"></i>
                                     </div>
@@ -158,8 +158,8 @@
                                     <span>100.000,00</span>
                                 </div>
                             </div>
-                            <div class="transaction-out-container">
-                                <div class="transaction-name">
+                            <div class="transaction-out-container border-transparent shadow-lg rounded-xl">
+                                <div class="transaction-name rounded-t-xl">
                                     <div class="icon-transaction">
                                         <i class="fa-solid fa-coins it"></i>
                                     </div>
@@ -173,7 +173,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="total-money-container">
+                <div class="total-money-container border-transparent shadow-lg rounded-xl">
                     <div class="total-money-name">
                         <span class="title-total-money">Saldo Keseluruhan sampai dengan hari ini</span>
                     </div>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\NasabahController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,14 +23,18 @@ Route::get("/home", function() {
 
 Route::get("/", [LoginController::class, "show"]);
 Route::get("/login", [LoginController::class, "show"]);
-Route::get("/register", [RegisterController::class, "show"]);
+Route::get("/register", [RegisterController::class, "show"])->name('register');
 Route::get("/dashboard", [NasabahController::class, "show"])->name("dashboard");
 Route::get("/dashboard/tabungan", [NasabahController::class, "showTabungan"])->name("dashboard.tabungan");
 Route::get("/dashboard/transaksi", [NasabahController::class, "showTransaksi"])->name("dashboard.transaksi");
-Route::get("/admindashboard", [NasabahController::class, "showAdminDashboard"])->name("admindashboard");
-Route::get("/admindashboard/bank", [NasabahController::class, "showAdminBank"])->name("admindashboard.bank");
-Route::get("/admindashboard/cs", [NasabahController::class, "showAdminCs"])->name("admindashboard.cs");
-Route::get("/admindashboard/teller", [NasabahController::class, "showAdminTeller"])->name("admindashboard.teller");
+
+Route::get("/admindashboard", [AdminController::class, "showAdminDashboard"])->name("admindashboard");
+Route::get("/admindashboard/bank", [AdminController::class, "showAdminBank"])->name("admindashboard.bank");
+Route::get("/admindashboard/nasabah", [AdminController::class, "showAdminNasabah"])->name("admindashboard.nasabah");
+Route::get("/admindashboard/nasabah/create", [AdminController::class, "createAdminNasabah"])->name("admindashboard.nasabah.create");
+Route::get("/admindashboard/cs", [AdminController::class, "showAdminCs"])->name("admindashboard.cs");
+Route::get("/admindashboard/teller", [AdminController::class, "showAdminTeller"])->name("admindashboard.teller");
+
 Route::get("/csdashboard", [NasabahController::class, "showCsDashboard"])->name("csdashboard");
 Route::get("/csdashboard/tambahakun", [NasabahController::class, "showCsTambahAkun"])->name("csdashboard.tambahakun");
 Route::get("/csdashboard/tambahrekening", [NasabahController::class, "showCsTambahRekening"])->name("csdashboard.tambahrekening");
