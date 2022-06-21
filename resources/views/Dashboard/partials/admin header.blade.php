@@ -15,6 +15,14 @@
             </div>
         </a>
     </div>
+    <div class="navbar-item-container group {{ Request::is('admindashboard/nasabah') ? 'active' : '' }}">
+        <a id="navbar-content" href="/admindashboard/nasabah" class="navbar-item-link transition-all-500">
+            <span id="navbar-content-name" class="navbar-item-name transition-transform-500">Info Nasabah</span>
+            <div class="navbar-item-icon">
+                <i class="fa-solid fa-address-card nav-icon"></i>
+            </div>
+        </a>
+    </div>
     <div class="navbar-item-container group {{ Request::is('admindashboard/cs') ? 'active' : '' }}">
         <a id="navbar-content" href="/admindashboard/cs" class="navbar-item-link transition-all-500">
             <span id="navbar-content-name" class="navbar-item-name transition-transform-500">Informasi CS</span>
@@ -27,7 +35,7 @@
         <a id="navbar-content" href="/admindashboard/teller" class="navbar-item-link transition-all-500">
             <span id="navbar-content-name" class="navbar-item-name transition-transform-500">Informasi Teller</span>
             <div class="navbar-item-icon">
-                <i class="fa-solid fa-user nav-icon"></i>
+                <i class="fa-solid fa-id-card-clip nav-icon"></i>
             </div>
         </a>
     </div>

@@ -19,22 +19,7 @@ class NasabahController extends Controller
         return view('Dashboard.user page.user transaction');
     }
 
-    // view Admin
-    public function showAdminDashboard() {
-        return view('Dashboard.admin page.admin dashboard');
-    }
-
-    public function showAdminBank() {
-        return view('Dashboard.admin page.admin bank');
-    }
-
-    public function showAdminCs() {
-        return view('Dashboard.admin page.admin cs');
-    }
-
-    public function showAdminTeller() {
-        return view('Dashboard.admin page.admin teller');
-    }
+    
 
     // view CS
     public function showCsDashboard() {
