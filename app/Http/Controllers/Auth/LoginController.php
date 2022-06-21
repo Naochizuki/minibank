@@ -23,7 +23,8 @@ class LoginController extends Controller {
             return view('/login');
         }
     }
-
+    
+    //backend login logic
     public function actionlogin(Request $request) {
         $data = [
             'nama' => $request->input('nama'),
