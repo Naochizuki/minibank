@@ -54,6 +54,13 @@ class AdminController extends Controller
         return view('Dashboard.admin page.admin nasabah', compact('nasabahs'));
     }
 
+    public function showView(Request $request) 
+    {
+        $id = $request->id;
+        $nasabah = Nasabah::where('id', $id)->get();
+        return view('Dashboard.admin page.admin nasabah view', compact('nasabah'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

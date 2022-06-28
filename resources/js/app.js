@@ -55,3 +55,35 @@ myProfilePic.addEventListener('click', function () {
     myProfile.classList.toggle('profile-container-click');
     myPP.classList.toggle('profile-picture-click');
 });
+
+$('#viewModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget)
+    var targetId = button.data('order')
+    var id_user = button.data('idUser')
+    var nama = button.data('nama')
+    var alamat = button.data('alamat')
+    var nik = button.data('nik')
+    var gender = button.data('gender')
+    var namaibu = button.data('namaibu')
+    var tgllahir = button.data('tgllahir')
+    var notelp = button.data('notelp')
+    var modal = $(this)
+
+    modal.find('.modal-body #id').val(targetId)
+    modal.find('.modal-body #idUser').val(id_user)
+    modal.find('.modal-body #nama').val(nama)
+    modal.find('.modal-body #alamat').val(alamat)
+    modal.find('.modal-body #nik').val(nik)
+    modal.find('.modal-body #gender').val(gender)
+    modal.find('.modal-body #namaibu').val(namaibu)
+    modal.find('.modal-body #tgllahir').val(tgllahir)
+    modal.find('.modal-body #notelp').val(notelp)
+})
+
+$('#deleteModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget)
+    var targetId = button.data('order')
+    var modal = $(this)
+
+    modal.find('.modal-body #idMahasiswa').val(targetId)
+})

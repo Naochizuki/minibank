@@ -47,6 +47,7 @@ Route::controller(AdminController::class)->prefix('admin')->name('admin.')->grou
     Route::get('dashboard/cs', 'showAdminCs')->name('AdminCS');
     Route::get('dashboard/teller', 'showAdminTeller')->name('AdminTeller');
     Route::get('dashboard/nasabah', 'showAdminNasabah')->name('AdminNasabah');
+    Route::get('dashboard/nasabah/{id}', 'showView')->name('AdminViewNasabah');
 });
 
 Route::get("/", [LoginController::class, "show"]);

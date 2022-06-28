@@ -7,6 +7,14 @@
             </div>
             <div class="modal-body">
                 <div class="form-group mb-3">
+                    <label for="id" class="fs-6">ID</label>
+                    <input type="hidden" name="id" id="id" class="form-control" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="idUser" class="fs-6">Id User</label>
+                    <input type="text" name="idUser" id="idUser" class="form-control" disabled>
+                </div>
+                <div class="form-group mb-3">
                     <label for="nama" class="fs-6">Nama</label>
                     <input type="text" name="nama" id="nama" class="form-control" disabled>
                 </div>

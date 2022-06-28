@@ -28,12 +28,6 @@
                                     <th class="px-4 py-2 text-white">Id</th>
                                     <th class="px-4 py-2 text-white">Id User</th>
                                     <th class="px-4 py-2 text-white">Nama</th>
-                                    <th class="px-4 py-2 text-white">Alamat</th>
-                                    <th class="px-4 py-2 text-white">NIK</th>
-                                    <th class="px-4 py-2 text-white">Jenis Kelamin</th>
-                                    <th class="px-4 py-2 text-white">Nama Ibu</th>
-                                    <th class="px-4 py-2 text-white">Tgl Lahir</th>
-                                    <th class="px-4 py-2 text-white">No Telp</th>
                                     <th class="px-4 py-2 text-white">Aksi</th>
                                 </thead>
                                 <tbody>
@@ -42,22 +36,17 @@
                                         <td class="text-center">{{ $nasabah->id }}</td>
                                         <td class="text-center">{{ $nasabah->id_user }}</td>
                                         <td class="text-center">{{ $nasabah->nama }}</td>
-                                        <td class="text-center">{{ $nasabah->alamat }}</td>
-                                        <td class="text-center">{{ $nasabah->nik }}</td>
-                                        <td class="text-center">{{ $nasabah->jenis_kelamin }}</td>
-                                        <td class="text-center">{{ $nasabah->nama_ibu }}</td>
-                                        <td class="text-center">{{ $nasabah->tgl_lahir }}</td>
-                                        <td class="text-center">{{ $nasabah->no_telp }}</td>
                                         <td>
-                                            <button type='button' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                                View
-                                            </button>
+                                            <a href="{{ url('admin/dashboard/nasabah', $id=$nasabah->id) }}">    
+                                                <button type='button' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                    View
+                                                </button>
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                            @include('Dashboard.partials.viewModal')
                         </div>
                     </div>
                 </div>
