@@ -16,6 +16,6 @@ class TellerController extends Controller
     }
 
     public function showTellerMutation() {
-        return view('Dashboard.teller page.teller mutasi');
+        return view('Dashboard.teller page.teller mutation');
     }
 }
