@@ -32,7 +32,7 @@ Route::controller(NasabahController::class)->prefix('nasabah')->name('nasabah.')
 Route::controller(CSController::class)->prefix('cs')->name('cs.')->group(function () {
     Route::get('dashboard', 'showCsDashboard')->name('CSDashboard');
     Route::get('dashboard/tambah/nasabah', 'showCsTambahAkun')->name('CSTambahAkun');
-    Route::get('dashboard/tambah/teller', 'showCsTambahRekening')->name('CSTambahRekening');
+    Route::get('dashboard/tambah/rekening', 'showCsTambahRekening')->name('CSTambahRekening');
 });
 
 Route::controller(TellerController::class)->prefix('teller')->name('teller.')->group(function () {

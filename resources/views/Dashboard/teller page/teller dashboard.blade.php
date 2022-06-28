@@ -21,7 +21,7 @@
                             Transaksi
                         </p>
                         <div class="mt-5 text-purple-600 dark:text-indigo-600">
-                            <a href="{{ url('cs/dashboard/tambah/nasabah') }}">
+                            <a href="{{ url('teller/dashboard/transaksi') }}">
                                 <p class="text-center">More ></p>
                             </a>
                         </div>
@@ -34,7 +34,7 @@
                             Mutasi
                         </p>
                         <div class="mt-5 absolute bottom-9 text-purple-600 dark:text-indigo-600">
-                            <a href="{{ url('nasabah/dashboard/transaksi') }}">
+                            <a href="{{ url('teller/dashboard/mutasi') }}">
                                 <p class="text-center">More ></p>
                             </a>
                         </div>
