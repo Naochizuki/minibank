@@ -37,17 +37,17 @@
                                     <th class="px-4 py-2 text-white">Aksi</th>
                                 </thead>
                                 <tbody>
-                                    
+                                    @foreach ($nasabahs as $nasabah)
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td class="text-center">{{ $nasabah->id }}</td>
+                                        <td class="text-center">{{ $nasabah->id_user }}</td>
+                                        <td class="text-center">{{ $nasabah->nama }}</td>
+                                        <td class="text-center">{{ $nasabah->alamat }}</td>
+                                        <td class="text-center">{{ $nasabah->nik }}</td>
+                                        <td class="text-center">{{ $nasabah->jenis_kelamin }}</td>
+                                        <td class="text-center">{{ $nasabah->nama_ibu }}</td>
+                                        <td class="text-center">{{ $nasabah->tgl_lahir }}</td>
+                                        <td class="text-center">{{ $nasabah->no_telp }}</td>
                                         <td>
                                             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                                 Edit
@@ -57,6 +57,7 @@
                                             </button>
                                         </td>
                                     </tr>
+                                    @endforeach
                                     
                                 </tbody>
                             </table>

@@ -12,7 +12,6 @@ class Nasabah extends Model
     protected $table = "nasabah";
     protected $primarykey = "id";
     protected $fillable = [
-        'id',
         'id_user',
         'nama',
         'alamat',
@@ -25,5 +24,9 @@ class Nasabah extends Model
 
     public function idusers(){
         return $this->belongsTo('App\User', 'id_user');
+    }
+
+    public function Rekening() {
+        return $this->hasMany('App\Rekening', 'id_nasabah', 'id');
     }
 }

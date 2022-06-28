@@ -17,21 +17,23 @@ class NasabahSeeder extends Seeder
      */
     public function run()
     {
-        $users = User::where('role', 'nasabah');
+        $users = User::where('role', 'nasabah')->get();
 
         $faker = Faker::create('id_ID');
         $gender = $faker->randomElement(['Laki-laki', 'Perempuan']);
 
-        for ($i = 0; $i < $users->count(); $i++) {
+        foreach ($users as $user) {
             DB::table('nasabah')->insert([
-                'id_user' => $users->id,
-                'nama' => $users->nama,
+                'id_user' => $user->id,
+                'nama' => $user->nama,
                 'alamat' => $faker->address(),
-                'nik' => $faker->unique()->numberBetween(3300000000000000, 3399999999999999),
+                'nik' => $faker->unique()->numberBetween(33000000, 33999999),
                 'jenis_kelamin' => $gender,
                 'nama_ibu' => $faker->name($gender == 'Perempuan'),
-                'tgl_lahir' => $faker->dateTimeBetween('1950-01-01', '2010-12-31')->format('d/m/Y'),
+                'tgl_lahir' => $faker->dateTimeBetween('1950-01-01', '2010-12-31')->format('Y-m-d'),
                 'no_telp' => $faker->phoneNumber(),
+                'created_by' => 1,
+                'updated_by' => 1
             ]);
         }
     }

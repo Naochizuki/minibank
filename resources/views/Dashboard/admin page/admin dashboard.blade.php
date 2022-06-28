@@ -7,13 +7,14 @@
 @endsection
 
 @section('content')
+{{ dd(session()->get('user')) }}
     <div class="main-fill-vertical transition-all-500"></div>
     <div class="main-fill-second">
         <div class="main-fill-horizontal"></div>
         <div class="main-container">
             <div class="main-content">
                 <div class="greeting border-transparent shadow-lg rounded-xl">
-                    <span class="greet">Selamat Datang <span class="user-account text-green-400">Abiyyu Dzaky Muhammad</span> di
+                    <span class="greet">Selamat Datang <span class="user-account text-green-400">{{ Session::get('user') }}</span> di
                         Sistem Informasi Minibank</span>
                     <span class="date">Rabu, 27 April 2022</span>
                 </div>

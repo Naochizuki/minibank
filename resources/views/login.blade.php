@@ -13,6 +13,7 @@
             <div
                 class="border border-solid border-slate-200 rounded-lg shadow-md shadow-slate-400 mt-10 p-4">
                 <form action="{{ route('actionlogin') }}" method="POST" class="flex flex-col gap-6">
+                    @csrf
                     <div class="flex flex-col gap-1 w-80">
                         <label for="username">
                             <span class="text-lg font-semibold">Username</span>
@@ -31,14 +32,13 @@
                             Password?</a>
                     </div>
                     <div class="group flex justify-center">
-                        <a href=""
+                        <div
                             class="w-full bg-purple-700 text-center rounded-md group-hover:bg-purple-500 transition-all duration-200">
-                            <button type="submit"
-                                class="text-white font-bold text-xl p-2 group-hover:font-semibold transition-all duration-200"><i class="fa-solid fa-right-to-bracket"></i> Log
-                                in</button>
-                        </a>
+                            <input type="submit"
+                                class="text-white font-bold text-xl p-2 group-hover:font-semibold transition-all duration-200"><i class="fa-solid fa-right-to-bracket"></i>
                     </div>
-                    <a href="{{ route('register') }}" class="text-lg text-center text-purple-700 underline underline-offset-2 hover:text-purple-500 transition-all duration-200">Sign Up</a>
+                    </div>
+                    <a href="{{ url('/register') }}" class="text-lg text-center text-purple-700 underline underline-offset-2 hover:text-purple-500 transition-all duration-200">Sign Up</a>
                 </form>
             </div>
         </div>

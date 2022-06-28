@@ -22,7 +22,9 @@
                             Layanan untuk cek tabungan beserta jumlah saldo yang tersedia
                         </p>
                         <div class="mt-5 text-purple-600 dark:text-indigo-600">
-                            <p class="text-center">More ></p>
+                            <a href="{{ url('nasabah/dashboard/tabungan') }}">
+                                <p class="text-center">More ></p>
+                            </a>
                         </div>
                     </div>
                     <div class="text-sm border rounded-lg shadow-lg p-10 relative bg-white dark:bg-slate-800">
@@ -33,7 +35,9 @@
                             Layanan bertransaksi ke sesama bank maupun antar bank
                         </p>
                         <div class="mt-5 absolute bottom-9 text-purple-600 dark:text-indigo-600">
-                            <p class="text-center">More ></p>
+                            <a href="{{ url('nasabah/dashboard/transaksi') }}">
+                                <p class="text-center">More ></p>
+                            </a>
                         </div>
                     </div>
                 </div>

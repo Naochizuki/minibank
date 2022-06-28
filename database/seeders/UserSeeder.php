@@ -20,9 +20,9 @@ class UserSeeder extends Seeder
     {
         $faker = Faker::create('id_ID');
         $gender = $faker->randomElement(['Laki-laki', 'Perempuan']);
-        $userpass = 'password';
-        $encrypted = Crypt::encryptString($userpass);
-        $decrypted = Crypt::decryptString($encrypted);
+        // $userpass = 'password';
+        $encrypted = bcrypt('password');
+        // $decrypted = Crypt::decryptString($encrypted);
 
         for ($i = 0; $i < 100; $i++) {
             DB::table('users')->insert([
@@ -30,7 +30,6 @@ class UserSeeder extends Seeder
                 'email' => $faker->unique()->safeEmail(),
                 'role' => $faker->randomElement(['admin', 'teller', 'cs', 'nasabah']),
                 'password' => $encrypted,
-                'decrypt' => $decrypted,
             ]);
         }
     }

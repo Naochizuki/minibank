@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use App\Models\Rekening;
+use App\Models\Nasabah;
 
 class AdminController extends Controller
 {
@@ -22,16 +25,19 @@ class AdminController extends Controller
     }
 
     public function showAdminCs() {
-        return view('Dashboard.admin page.admin cs');
+        $users = User::where('role', 'cs')->get();
+        return view('Dashboard.admin page.admin cs', compact('users'));
     }
 
     public function showAdminTeller() {
-        return view('Dashboard.admin page.admin teller');
+        $users = User::where('role', 'teller')->get();
+        return view('Dashboard.admin page.admin teller', compact('users'));
     }
      
     public function showAdminNasabah() 
     {
-        return view('Dashboard.admin page.admin nasabah');
+        $nasabahs = Nasabah::get();
+        return view('Dashboard.admin page.admin nasabah', compact('nasabahs'));
     }
 
     /**
