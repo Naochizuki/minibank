@@ -33,6 +33,7 @@ class TellerController extends Controller
     }
 
     public function showTellerMutation() {
-        return view('Dashboard.teller page.teller mutation');
+        $users = Transaksi::get();
+        return view('Dashboard.teller page.teller mutation', compact('users'));
     }
 }
