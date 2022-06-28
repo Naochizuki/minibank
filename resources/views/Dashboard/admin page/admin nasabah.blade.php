@@ -49,18 +49,15 @@
                                         <td class="text-center">{{ $nasabah->tgl_lahir }}</td>
                                         <td class="text-center">{{ $nasabah->no_telp }}</td>
                                         <td>
-                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                                Edit
-                                            </button>
-                                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                                                Delete
+                                            <button type='button' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                View
                                             </button>
                                         </td>
                                     </tr>
                                     @endforeach
-                                    
                                 </tbody>
                             </table>
+                            @include('Dashboard.partials.viewModal')
                         </div>
                     </div>
                 </div>

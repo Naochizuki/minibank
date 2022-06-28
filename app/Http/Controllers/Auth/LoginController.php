@@ -27,22 +27,34 @@ class LoginController extends Controller {
     
     //backend login logic
     public function actionlogin(Request $request) {
-        $data = [
-            'nama' => $request->input('nama'),
-            'password' => Crypt::decryptString($request->input('password')),
-        ];
-        if (Auth::Attempt($data)){
-            $role = DB::table('users')->where('nama', $data["nama"])->value('role');
+        // dd($request);
+        // $data = [
+        //     'email' => $request->input('email'),
+        //     'password' => 'password',
+        // ];
+        $request->validate([
+            'email' => 'required | email',
+            'password' => 'required',
+        ]);
+        $data = $request->only('email', 'password');
+        if(Auth::attempt($data)){
+            $role = DB::table('users')->where('email', $data["email"])->value('role');
+            // $users = DB::table('users')->where('nama', $data['nama'])->get();
+            // $user = $users[0]->nama;
+            // $request->session()->regenerate();
             if ($role == 'admin'){
-                return redirect('/admindashboard');
+                return redirect('/admin/dashboard');
+                // return redirect()->intended('admin/dashboard')->withSucess('Masuk');
+            }elseif($role == 'nasabah'){
+                return redirect('/nasabah/dashboard');
+            }elseif($role == 'cs'){
+                return redirect('/cs/dashboard');
+            }elseif($role == 'teller'){
+                return redirect('/teller/dashboard');
             }
-            elseif($role == 'nasabah'){
-                return redirect('/dashboard');
-            }
-            // return redirect ('dashboard');
         }else{
             Session::flash('error', 'Email atau Password Salah');
-            return redirect('/login');
+            return redirect('/register');
         }
     }
 

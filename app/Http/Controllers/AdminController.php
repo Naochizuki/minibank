@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Rekening;
 use App\Models\Nasabah;
+use App\Models\Transaksi;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -17,7 +19,19 @@ class AdminController extends Controller
      */
     // view Admin
     public function showAdminDashboard() {
-        return view('Dashboard.admin page.admin dashboard');
+        $today = Carbon::now('Asia/Jakarta')->format('Y-m-d');
+        $weekStart = Carbon::now('Asia/Jakarta')->format('Y-m-d');
+        $weekEnds = Carbon::now('Asia/Jakarta')->subDay(7)->format('Y-m-d');
+
+        $nasabahs = Nasabah::get();
+        $rekenings = Rekening::get();
+        $todayIns = Transaksi::where('tgl_transaksi', $today, 1)->where('jenis_transaksi', 'Pemasukan', 1)->get();
+        $todayOuts = Transaksi::where('tgl_transaksi', $today, 1)->where('jenis_transaksi', 'Pengeluaran',1)->get();
+        $weekIns = Transaksi::where('tgl_transaksi', '>=', $weekEnds)->where('tgl_transaksi', '<=', $weekStart)->where('jenis_transaksi', 'Pemasukan')->get();
+        $weekOuts = Transaksi::where('tgl_transaksi', '>=', $weekEnds)->where('tgl_transaksi', '<=', $weekStart)->where('jenis_transaksi', 'Pengeluaran')->get();
+        $totalIns = Transaksi::where('jenis_transaksi', 'Pemasukan')->get();
+        $totalOuts = Transaksi::where('jenis_transaksi', 'Pengeluaran')->get();
+        return view('Dashboard.admin page.admin dashboard', compact(['nasabahs', 'todayIns', 'todayOuts', 'weekIns', 'weekOuts', 'totalIns', 'totalOuts', 'rekenings']));
     }
 
     public function showAdminBank() {
@@ -47,6 +61,7 @@ class AdminController extends Controller
      */
     public function createAdminNasabah()
     {
+        $nasabahs = Nasabah::get();
         return view('Dashboard.admin page.create admin nasabah');
     }
 

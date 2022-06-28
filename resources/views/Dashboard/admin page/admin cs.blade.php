@@ -40,8 +40,12 @@
                                     <div class="table-td">{{ $user->nama }}</div>
                                     <div class="table-td">Lorem ipsum dolor sit amet.</div>
                                     <div class="table-td">
-                                        <div class="btn-edit"><i class="fa-solid fa-pen"></i></div>
-                                        <div class="btn-delete"><i class="fa-solid fa-trash-can"></i></div>
+                                        <button type='button' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                            Edit
+                                        </button>
+                                        <button type='button' class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                            Delete
+                                        </button>
                                     </div>
                                 </div>                                    
                                 @endforeach

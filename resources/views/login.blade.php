@@ -16,9 +16,9 @@
                     @csrf
                     <div class="flex flex-col gap-1 w-80">
                         <label for="username">
-                            <span class="text-lg font-semibold">Username</span>
+                            <span class="text-lg font-semibold">Email</span>
                         </label>
-                        <input name="nama" type="text" id="username" placeholder="Username"
+                        <input name="email" type="email" id="username" placeholder="Email"
                             class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2">
                     </div>
                     <div class="flex flex-col gap-1 w-180">
