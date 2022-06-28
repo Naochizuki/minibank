@@ -41,3 +41,6 @@ Route::get("/csdashboard/tambahrekening", [NasabahController::class, "showCsTamb
 Route::get("/tellerdashboard", [NasabahController::class, "showTellerDashboard"])->name("tellerdashboard");
 Route::get("/tellerdashboard/transaksi", [NasabahController::class, "showTellerTransaksi"])->name("tellerdashboard.transaksi");
 Route::get("/tellerdashboard/mutasi", [NasabahController::class, "showTellerMutasi"])->name("tellerdashboard.mutasi");
+
+//for insert new register
+Route::post('create', 'App\Http\Controllers\Auth\RegisterController@store');

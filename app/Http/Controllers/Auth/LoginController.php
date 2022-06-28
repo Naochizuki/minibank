@@ -35,7 +35,7 @@ class LoginController extends Controller {
             if ($role == 'admin'){
                 return redirect('/admindashboard');
             }
-            elseif($role == 'cust'){
+            elseif($role == 'nasabah'){
                 return redirect('/dashboard');
             }
             // return redirect ('dashboard');
