@@ -21,8 +21,6 @@ class AdminController extends Controller
         return view('Dashboard.admin page.admin bank');
     }
 
-    
-
     public function showAdminCs() {
         return view('Dashboard.admin page.admin cs');
     }

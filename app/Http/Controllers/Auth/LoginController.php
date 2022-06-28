@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Session;
+use Illuminate\Support\Facades\Crypt;
 
 use App\Http\Controllers\Controller;
 
@@ -28,7 +29,7 @@ class LoginController extends Controller {
     public function actionlogin(Request $request) {
         $data = [
             'nama' => $request->input('nama'),
-            'password' => $request->input('password')
+            'password' => Crypt::decryptString($request->input('password')),
         ];
         if (Auth::Attempt($data)){
             $role = DB::table('users')->where('nama', $data["nama"])->value('role');
