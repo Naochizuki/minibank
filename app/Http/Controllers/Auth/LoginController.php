@@ -7,13 +7,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Session;
 use Illuminate\Support\Facades\Crypt;
+use App\Models\Konfigurasi;
 
 use App\Http\Controllers\Controller;
 
 class LoginController extends Controller {
     // Buat view
     public function show(){
-        return view('/login');
+        $config = Konfigurasi::get();
+        return view('/login', compact('config'));
     }
 
     // Buat login

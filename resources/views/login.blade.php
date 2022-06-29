@@ -8,7 +8,7 @@
             class="continer mx-auto flex flex-col lg:flex-row items-center justify-center pb-40">
             <div class="text-center my-4 lg:my-0 lg:mr-24">
                 <h1 class="text-black text-5xl lg:text-6xl dark:text-white font-bold">MINIBANK</h1>
-                <h3 class="text-black text-3xl lg:text-4xl dark:text-white font-semibold">Minibank</h3>
+                <h3 class="text-black text-3xl lg:text-4xl dark:text-white font-semibold">{{ $config[0]->code_value }}</h3>
             </div>
             <div
                 class="border border-solid border-slate-200 rounded-lg shadow-md shadow-slate-400 mt-10 p-4">
