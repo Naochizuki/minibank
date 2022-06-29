@@ -22,31 +22,33 @@
                         </button>
                     </div>
                     <div class="bank-data">
-                        <div class="mt-2 bg-white overflow-hidden shadow sm:rounded-lg">
-                            <table class="table-fixed">
-                                <thead class="bg-gray-500">
-                                    <th class="px-4 py-2 text-white">Id</th>
-                                    <th class="px-4 py-2 text-white">Id User</th>
-                                    <th class="px-4 py-2 text-white">Nama</th>
-                                    <th class="px-4 py-2 text-white">Aksi</th>
-                                </thead>
-                                <tbody>
-                                    @foreach ($nasabahs as $nasabah)
-                                    <tr>
-                                        <td class="text-center">{{ $nasabah->id }}</td>
-                                        <td class="text-center">{{ $nasabah->id_user }}</td>
-                                        <td class="text-center">{{ $nasabah->nama }}</td>
-                                        <td>
+                        <div class="flex justify-center w-full mt-2 bg-white overflow-hidden shadow sm:rounded-lg">
+                            <div class="table-data">
+                                <div class="table-header">
+                                    <div class="table-tr">
+                                        <div class="table-td-bank">Id</div>
+                                        <div class="table-td-bank">Id User</div>
+                                        <div class="table-td-bank">Nama</div>
+                                        <div class="table-td-bank">Aksi</div>
+                                    </div>
+                                </div>
+                                @foreach ($nasabahs as $nasabah)
+                                <div class="table-tr-group">
+                                    <div class="table-tr">
+                                        <div class="table-td-bank num">{{ $nasabah->id }}</div>
+                                        <div class="table-td-bank num">{{ $nasabah->id_user }}</div>
+                                        <div class="table-td-bank">{{ $nasabah->nama }}</div>
+                                        <div class="table-td-bank flex justify-center">
                                             <a href="{{ url('admin/dashboard/nasabah', $id=$nasabah->id) }}">    
                                                 <button type='button' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                                     View
                                                 </button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                            </a>                
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>

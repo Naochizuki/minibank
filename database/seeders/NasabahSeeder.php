@@ -20,7 +20,6 @@ class NasabahSeeder extends Seeder
         $users = User::where('role', 'nasabah')->get();
 
         $faker = Faker::create('id_ID');
-        $gender = $faker->randomElement(['Laki-laki', 'Perempuan']);
 
         foreach ($users as $user) {
             DB::table('nasabah')->insert([
@@ -28,8 +27,8 @@ class NasabahSeeder extends Seeder
                 'nama' => $user->nama,
                 'alamat' => $faker->address(),
                 'nik' => $faker->unique()->numberBetween(33000000, 33999999),
-                'jenis_kelamin' => $gender,
-                'nama_ibu' => $faker->name($gender == 'Perempuan'),
+                'jenis_kelamin' => $faker->randomElement(['Laki-laki', 'Perempuan']),
+                'nama_ibu' => $faker->name(),
                 'tgl_lahir' => $faker->dateTimeBetween('1950-01-01', '2010-12-31')->format('Y-m-d'),
                 'no_telp' => $faker->phoneNumber(),
                 'created_by' => 1,

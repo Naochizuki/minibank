@@ -16,9 +16,9 @@
                         <div class="setting-nav">
                             <button class="btn-configuration">
                                 <div class="btn-configuration-icon">
-                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-plus"></i>
                                 </div>
-                                <span class="btn-name">Konfigurasi</span>
+                                <span class="btn-name">Tambah Konfigurasi</span>
                             </button>
                         </div>
                         <div class="bank-data">
@@ -28,25 +28,30 @@
                                         <div class="table-td-bank">No.</div>
                                         <div class="table-td-bank">Informasi</div>
                                         <div class="table-td-bank">Detail</div>
+                                        <div class="table-td-bank">Aksi</div>
                                     </div>
                                 </div>
+                                @foreach ($configs as $config)
                                 <div class="table-tr-group">
                                     <div class="table-tr">
-                                        <div class="table-td-bank num">1</div>
-                                        <div class="table-td-bank">Nama</div>
-                                        <div class="table-td-bank">Minibank</div>
-                                    </div>
-                                    <div class="table-tr">
-                                        <div class="table-td-bank num">2</div>
-                                        <div class="table-td-bank">Alamat</div>
-                                        <div class="table-td-bank">Surakarta</div>
-                                    </div>
-                                    <div class="table-tr">
-                                        <div class="table-td-bank num">3</div>
-                                        <div class="table-td-bank">Logo</div>
-                                        <div class="table-td-bank">M</div>
+                                        <div class="table-td-bank num">{{ $loop->iteration }}</div>
+                                        <div class="table-td-bank">{{ $config->code }}</div>
+                                        <div class="table-td-bank">{{ $config->code_value }}</div>
+                                        <div class="table-td-bank flex justify-center gap-3">
+                                            <a href="{{ url('admin/dashboard/bank', $id=$config->id) }}">
+                                                <button type='button' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                    Edit
+                                                </button>
+                                            </a>
+                                            <a href="{{ url('admin/dashboard/bank/delete', $id=$config->id) }}">
+                                                <button type='button' class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                                    Delete
+                                                </button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

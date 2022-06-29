@@ -21,21 +21,20 @@
                             </label>
                             <input name="nama" type="text" id="nama" class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2" disabled value="{{ $nasa->nama }}">
                         </div>
-                    </div>
-                    <div class="flex flex-row gap-6">
-                        <div class="flex flex-col gap-1 w-80">
-                            <label for="alamat">
-                                <span class="text-lg font-semibold">Alamat</span>
-                            </label>
-                            <input name="alamat" type="text" id="alamat"
-                                class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2" disabled value="{{ $nasa->alamat }}">
-                        </div>
                         <div class="flex flex-col gap-1 w-80">
                             <label for="no_telp">
                                 <span class="text-lg font-semibold">Nomor Telepon</span>
                             </label>
                             <input name="no_telp" type="text" id="no_telp"
                                 class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2" disabled value="{{ $nasa->no_telp }}">
+                        </div>
+                    </div>
+                    <div class="flex flex-row gap-6">
+                        <div class="flex flex-col gap-1 w-80">
+                            <label for="alamat">
+                                <span class="text-lg font-semibold">Alamat</span>
+                            </label>
+                            <textarea name="alamat" id="alamat" class="h-16 w-96 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2" disabled>{{ $nasa->alamat }}</textarea>
                         </div>
                     </div>
                     <div class="flex flex-row gap-6">
@@ -69,6 +68,19 @@
                             <input name="tgl_lahir" type="date" id="tgl_lahir" 
                             class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2" disabled value="{{ $nasa->tgl_lahir }}">
                         </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="{{ url('admin/dashboard/nasabah') }}">
+                            <button type='button' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Back
+                            </button>
+                        </a>
+                        <a href="{{ url('admin/dashboard/nasabah/delete', $id=$nasa->id) }}">
+                            <button type='button' class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                Delete
+                            </button>
+                        </a>
+                        </a>
                     </div>
                 </div>
                 @endforeach

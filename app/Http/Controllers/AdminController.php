@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Rekening;
 use App\Models\Nasabah;
 use App\Models\Transaksi;
+use App\Models\Konfigurasi;
 use Carbon\Carbon;
 
 class AdminController extends Controller
@@ -34,16 +35,20 @@ class AdminController extends Controller
         return view('Dashboard.admin page.admin dashboard', compact(['nasabahs', 'todayIns', 'todayOuts', 'weekIns', 'weekOuts', 'totalIns', 'totalOuts', 'rekenings']));
     }
 
-    public function showAdminBank() {
-        return view('Dashboard.admin page.admin bank');
+    public function showAdminBank() 
+    {
+        $configs = Konfigurasi::get();
+        return view('Dashboard.admin page.admin bank', compact('configs'));
     }
 
-    public function showAdminCs() {
+    public function showAdminCs() 
+    {
         $users = User::where('role', 'cs')->get();
         return view('Dashboard.admin page.admin cs', compact('users'));
     }
 
-    public function showAdminTeller() {
+    public function showAdminTeller() 
+    {
         $users = User::where('role', 'teller')->get();
         return view('Dashboard.admin page.admin teller', compact('users'));
     }
@@ -51,7 +56,7 @@ class AdminController extends Controller
     public function showAdminNasabah() 
     {
         $nasabahs = Nasabah::get();
-        return view('Dashboard.admin page.admin nasabah', compact('nasabahs'));
+        return view('Dashboard.admin page.admin nasabah', compact(  'nasabahs'));
     }
 
     public function showView(Request $request) 
@@ -59,6 +64,17 @@ class AdminController extends Controller
         $id = $request->id;
         $nasabah = Nasabah::where('id', $id)->get();
         return view('Dashboard.admin page.admin nasabah view', compact('nasabah'));
+    }
+
+    public function nasabahDestroy(Request $request) 
+    {
+        $id = $request->id;
+        Rekening::where('id_nasabah', $id)->delete();
+        $nasabah = Nasabah::where('id', $id)->get();
+        Nasabah::where('id', $id)->delete();
+        User::where('id', $nasabah[0]->id_user)->delete();
+
+        return redirect()->action([AdminController::class, 'showAdminNasabah']);
     }
 
     /**
