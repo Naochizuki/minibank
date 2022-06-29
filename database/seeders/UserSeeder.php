@@ -8,6 +8,7 @@ use Faker\Factory as Faker;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class UserSeeder extends Seeder
 {
@@ -30,6 +31,8 @@ class UserSeeder extends Seeder
                 'email' => $faker->unique()->safeEmail(),
                 'role' => $faker->randomElement(['admin', 'teller', 'cs', 'nasabah']),
                 'password' => $encrypted,
+                'created_at' => Carbon::now('Asia/Jakarta'),
+                'updated_at' => Carbon::now('Asia/Jakarta'),
             ]);
         }
     }

@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Nasabah;
 use Faker\Factory as Faker;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class RekeningSeeder extends Seeder
 {
@@ -27,7 +28,9 @@ class RekeningSeeder extends Seeder
                 'no_rekening' => $faker->unique()->numberBetween(11111111,99999999),
                 'saldo' => $faker->numberBetween(1111,999999999999),
                 'created_by' => 1,
-                'updated_by' => 1
+                'updated_by' => 1,
+                'created_at' => Carbon::now('Asia/Jakarta'),
+                'updated_at' => Carbon::now('Asia/Jakarta'),
             ]);
         }
     }

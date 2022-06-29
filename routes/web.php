@@ -37,12 +37,18 @@ Route::group(['middleware' => ['web']], function() {
         Route::get('dashboard/tambah/nasabah', 'showCsTambahAkun')->name('CSTambahAkun');
         Route::post('dashboard/tambah/nasabah', 'createCsNasabah')->name('CSTambahAkunStore');
         Route::get('dashboard/tambah/rekening', 'showCsTambahRekening')->name('CSTambahRekening');
+        Route::post('dashboard/tambah/rekening', 'createCsRekening')->name('CSTambahRekeningStore');
     });
     
     Route::controller(TellerController::class)->prefix('teller')->name('teller.')->group(function () {
         Route::get('dashboard', 'showTellerDashboard')->name('TellerDashboard');
         Route::get('dashboard/transaksi', 'showTellerTransaksi')->name('TellerTransaksi');
+        Route::get('dashboard/transaksi/setor', 'showTellerTransaksiSetor')->name('TellerTransaksiSetor');
+        Route::post('dashboard/transaksi/setor', 'AddTellerTransaksiSetor')->name('TellerTransaksiSetorProccess');
+        Route::get('dashboard/transaksi/tarik', 'showTellerTransaksiTarik')->name('TellerTransaksiTarik');
+        Route::post('dashboard/transaksi/tarik', 'addTellerTransaksiTarik')->name('TellerTransaksiTarikProccess');
         Route::get('dashboard/mutasi', 'showTellerMutation')->name('TellerMutasi');
+        Route::get('dashboard/mutasi/{no_rek}', 'showTellerMutationView')->name('TellerMutasiView');
     });
     
     Route::controller(AdminController::class)->prefix('admin')->name('admin.')->group(function () {

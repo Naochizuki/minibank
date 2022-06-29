@@ -145,6 +145,8 @@ class AdminController extends Controller {
             'role' => 'nasabah',
             'email' => $request->input('email'),
             'password' => $encrypted,
+            'created_at' => Carbon::now('Asia/Jakarta'),
+            'updated_at' => Carbon::now('Asia/Jakarta'),
         ]);
 
         Nasabah::insert([
@@ -157,10 +159,12 @@ class AdminController extends Controller {
             'tgl_lahir' => $request->input('tgl_lahir'),
             'no_telp' => $request->input('no_telp'),
             'created_by' => 1,
-            'updated_by' => 1
+            'updated_by' => 1,
+            'created_at' => Carbon::now('Asia/Jakarta'),
+            'updated_at' => Carbon::now('Asia/Jakarta'),
         ]);
 
-        return redirect()->action([AdminController::class, 'showAdminNasabah    ']);
+        return redirect()->action([AdminController::class, 'showAdminNasabah']);
     }
 
     public function showAdminNasabahAdd() {
@@ -188,6 +192,8 @@ class AdminController extends Controller {
             'role' => 'cs',
             'email' => $faker->unique()->safeEmail(),
             'password' => $encrypted,
+            'created_at' => Carbon::now('Asia/Jakarta'),
+            'updated_at' => Carbon::now('Asia/Jakarta'),
         ]);
 
         return redirect('/admin/dashboard/cs')->with('status', 'CS Berhasil ditambah!');
@@ -208,6 +214,8 @@ class AdminController extends Controller {
             'role' => 'teller',
             'email' => $faker->unique()->safeEmail(),
             'password' => $encrypted,
+            'created_at' => Carbon::now('Asia/Jakarta'),
+            'updated_at' => Carbon::now('Asia/Jakarta'),
         ]);
 
         return redirect('/admin/dashboard/teller')->with('status', 'Teller Berhasil ditambah!');
@@ -226,17 +234,19 @@ class AdminController extends Controller {
         ]);
 
         $user->nama = $request['nama'];
+        $user->updated_at = Carbon::now('Asia/Jakarta');
         $user->save();
-
+        
         return redirect('/admin/dashboard/cs')->with('status', 'CS Berhasil diedit!');
     }
-
+    
     public function updateteller(Request $request, User $user) {
         $request->validate([
             'nama' => 'required|max:255|min:2',
         ]);
-
+        
         $user->nama = $request['nama'];
+        $user->updated_at = Carbon::now('Asia/Jakarta');
         $user->save();
 
         return redirect('/admin/dashboard/teller')->with('status', 'Teller Berhasil diedit!');

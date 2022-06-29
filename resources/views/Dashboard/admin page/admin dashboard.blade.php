@@ -46,13 +46,7 @@
                                     <i class="fa-solid fa-money-bill-wave scni"></i>
                                 </div>
                                 <div class="s-c-name-detail">
-                                    @php
-                                        $count = 0;
-                                        foreach ($todayIns as $today) {
-                                            $count += $today->nominal;
-                                        }
-                                    @endphp
-                                    <span class="count-category">@currency($count)</span>
+                                    <span class="count-category">{{ $todayIns->count() }}</span>
                                     <span class="active-category">Transaksi Masuk</span>
                                     <span class="spesific-category">Masuk Hari Ini</span>
                                 </div>
@@ -70,13 +64,7 @@
                                     <i class="fa-solid fa-coins scni"></i>
                                 </div>
                                 <div class="s-c-name-detail rounded-t-xl">
-                                    @php
-                                        $count = 0;
-                                        foreach ($todayOuts as $today) {
-                                            $count += $today->nominal;
-                                        }
-                                    @endphp
-                                    <span class="count-category">@currency($count)</span>
+                                    <span class="count-category">{{ $todayOuts->count() }}</span>
                                     <span class="active-category">Transaksi Keluar</span>
                                     <span class="spesific-category">Keluar Hari Ini</span>
                                 </div>

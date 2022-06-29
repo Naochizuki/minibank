@@ -13,32 +13,37 @@
         <div class="main-container">
             <div class="main-content">
                 <div class="bank-information-container">
+                    <div class="setting-nav">
+                        <a href="{{ url('/teller/dashboard/mutasi') }}">
+                            <button class="btn-add">
+                                <span class="btn-name">Back</span>
+                            </button>
+                        </a>
+                    </div>
                     <div class="bank-data">
                         <div class="table-data">
                             <div class="table-header">
                                 <div class="table-tr">
                                     <div class="table-td">No.</div>
-                                    <div class="table-td">Pemilik Rekening</div>
-                                    <div class="table-td">Nomor Rekening</div>
-                                    <div class="table-td">Aksi</div>
+                                    <div class="table-td">Tanggal Transaksi</div>
+                                    <div class="table-td">Jenis Transaksi</div>
+                                    <div class="table-td">Nominal</div>
                                 </div>
                             </div>
                             <div class="table-tr-group">
-                                @foreach ($rekenings as $rekening)
+                                @foreach ($transaksis as $transaksi)
                                 <div class="table-tr">
                                     <div class="table-td">{{ $loop->iteration }}</div>
-                                    <div class="table-td">{{ $rekening->nama }}</div>
-                                    <div class="table-td">{{ $rekening->no_rekening }}</div>
-                                    <div class="table-td-bank flex justify-center">
-                                        <a href="{{ url('teller/dashboard/mutasi', $no_rek=$rekening->no_rekening) }}">    
-                                            <button data-toggle="modal" data-target="#editModal{{$rekening->no_rekening}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                                View
-                                            </button>
-                                        </a>                
-                                    </div>
+                                    <div class="table-td">{{ $transaksi->tgl_transaksi }}</div>
+                                    <div class="table-td">{{ $transaksi->jenis_transaksi }}</div>
+                                    <div class="table-td">{{ $transaksi->nominal }}</div>
                                 </div>                                    
                                 @endforeach
                             </div>
+                        </div>
+                        <div class="total-money-name mt-4">
+                            <span class="title-total-money">Saldo : </span>
+                            <span class="total text-xl font-semibold">@currency($transaksis[$transaksis->count()-1]->saldo)</span>
                         </div>
                     </div>
                 </div>

@@ -1978,6 +1978,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-4 {
   margin-bottom: 1rem;
 }
+.mr-1 {
+  margin-right: 0.25rem;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline {
+  display: inline;
+}
 .flex {
   display: flex;
 }
@@ -2055,6 +2067,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-96 {
   width: 24rem;
+}
+.w-3 {
+  width: 0.75rem;
+}
+.w-34 {
+  width: 8.5rem;
+}
+.w-76 {
+  width: 19rem;
+}
+.w-58 {
+  width: 14.5rem;
+}
+.w-52 {
+  width: 13rem;
 }
 .max-w-xl {
   max-width: 36rem;

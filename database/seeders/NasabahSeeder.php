@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Carbon\Carbon;
 
 class NasabahSeeder extends Seeder
 {
@@ -32,7 +33,9 @@ class NasabahSeeder extends Seeder
                 'tgl_lahir' => $faker->dateTimeBetween('1950-01-01', '2010-12-31')->format('Y-m-d'),
                 'no_telp' => $faker->phoneNumber(),
                 'created_by' => 1,
-                'updated_by' => 1
+                'updated_by' => 1,
+                'created_at' => Carbon::now('Asia/Jakarta'),
+                'updated_at' => Carbon::now('Asia/Jakarta'),
             ]);
         }
     }

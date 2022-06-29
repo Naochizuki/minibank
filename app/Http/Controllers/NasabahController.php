@@ -20,7 +20,8 @@ class NasabahController extends Controller
         $nasabah = Nasabah::where('id_user', Auth::user()->id)->get();
         $transIn = Transaksi::join('rekening', 'transaksi.id_rekening', '=', 'rekening.id')->join('nasabah', 'rekening.id_nasabah', '=', 'nasabah.id')->where('nasabah.id_user', Auth::user()->id)->where('transaksi.jenis_transaksi', 'Pemasukan')->where('transaksi.tgl_transaksi', '<=', Carbon::now('Asia/Jakarta')->format('Y-m-d'))->get();
         $transOut = Transaksi::join('rekening', 'transaksi.id_rekening', '=', 'rekening.id')->join('nasabah', 'rekening.id_nasabah', '=', 'nasabah.id')->where('nasabah.id_user', Auth::user()->id)->where('transaksi.jenis_transaksi', 'pengeluaran')->where('transaksi.tgl_transaksi', '<=', Carbon::now('Asia/Jakarta')->format('Y-m-d'))->get();
-        return view('Dashboard.user page.user money', compact('nasabah', 'transIn', 'transOut'));
+        $rek = Rekening::join('nasabah', 'rekening.id_nasabah', '=', 'nasabah.id')->where('nasabah.id_user', Auth::user()->id)->get();
+        return view('Dashboard.user page.user money', compact('nasabah', 'transIn', 'transOut', 'rek'));
     }
 
     public function showTransaksi() {

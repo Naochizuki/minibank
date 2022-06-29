@@ -40,5 +40,30 @@
                     </div>
                 </div>
             </div>
+            <div class="total-money-container border-transparent shadow-lg rounded-xl">
+                <div class="total-money-name">
+                    <span class="title-total-money">Informasi Tabungan</span>
+                    <div class="money-category">
+                        <span class="category-name w-58 inline-block">Pemilik Rekening</span>
+                        <span>: {{ $nasabah[0]->nama }}</span>
+                    </div>
+                </div>
+                @foreach ($rek as $rekening)
+                <div class="total-money-value">
+                    <div class="money-category">
+                        <span class="category-name w-58 inline-block">Nomor Rekening</span>
+                        <span>: {{ $rekening->no_rekening }}</span>
+                    </div>
+                    <div class="money-category">
+                        <span class="category-name w-58 inline-block">Tanggal Pembuatan Rekening</span>
+                        <span>: {{ $rekening->created_at->format('d-m-Y') }}</span>
+                    </div>
+                    <div class="money-category">
+                        <span class="category-name w-58 inline-block">Masa Berlaku</span>
+                        <span>: {{ $rekening->created_at->addDay(1825)->format('d-m-Y') }}</span>
+                    </div>
+                </div>
+                @endforeach
+            </div>
         </div>
 @endsection

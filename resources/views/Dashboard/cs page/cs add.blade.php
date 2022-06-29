@@ -17,7 +17,7 @@
                         <div class="flex flex-row gap-6">
                             <div class="flex flex-col gap-1 w-80">
                                 <label for="name">
-                                    <span class="text-lg font-semibold">Nama</span>
+                                    <span class="text-lg font-semibold">Nama<sup><strong class="text-red-500">*</strong></sup></span>
                                 </label>
                                 <input name="nama" type="text" id="name" placeholder="name"
                                     class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2 {{ $errors->has('nama') ? "invalid:border-red-500" : "" }}" required>
@@ -31,7 +31,7 @@
                         <div class="flex flex-row gap-6">
                             <div class="flex flex-col gap-1 w-80">
                                 <label for="email">
-                                    <span class="text-lg font-semibold">Email</span>
+                                    <span class="text-lg font-semibold">Email<sup><strong class="text-red-500">*</strong></sup></span>
                                 </label>
                                 <input name="email" type="text" id="email" placeholder="Email"
                                     class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2 {{ $errors->has('email') ? "invalid:border-red-500" : "" }}" required>
@@ -43,7 +43,7 @@
                             </div>
                             <div class="flex flex-col gap-1 w-80">
                                 <label for="Password">
-                                    <span class="text-lg font-semibold">Password</span>
+                                    <span class="text-lg font-semibold">Password<sup><strong class="text-red-500">*</strong></sup></span>
                                 </label>
                                 <input name="password" type="password" id="pasword" placeholder="Password" minlength="8"
                                     class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2 {{ $errors->has('password') ? "invalid:border-red-500" : "" }}" required>
@@ -57,7 +57,7 @@
                         <div class="flex flex-row gap-6">
                             <div class="flex flex-col gap-1 w-80">
                                 <label for="alamat">
-                                    <span class="text-lg font-semibold">Alamat</span>
+                                    <span class="text-lg font-semibold">Alamat<sup><strong class="text-red-500">*</strong></sup></span>
                                 </label>
                                 <input name="alamat" type="text" id="alamat" placeholder="Alamat"
                                     class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2 {{ $errors->has('alamat') ? "invalid:border-red-500" : "" }}" required>
@@ -69,7 +69,7 @@
                             </div>
                             <div class="flex flex-col gap-1 w-80">
                                 <label for="no_telp">
-                                    <span class="text-lg font-semibold">Nomor Telepon</span>
+                                    <span class="text-lg font-semibold">Nomor Telepon<sup><strong class="text-red-500">*</strong></sup></span>
                                 </label>
                                 <input name="no_telp" type="text" id="no_telp" placeholder="Nomor Telepon"
                                     class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2 {{ $errors->has('no_telp') ? "invalid:border-red-500" : "" }}" required>
@@ -83,7 +83,7 @@
                         <div class="flex flex-row gap-6">
                             <div class="flex flex-col gap-1 w-80">
                                 <label for="nik">
-                                    <span class="text-lg font-semibold">Nomor Induk Kependudukan</span>
+                                    <span class="text-lg font-semibold">Nomor Induk Kependudukan<sup><strong class="text-red-500">*</strong></sup></span>
                                 </label>
                                 <input name="nik" type="text" id="nik" placeholder="Nomor Induk Kependudukan"
                                     class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2 {{ $errors->has('nik') ? "invalid:border-red-500" : "" }}" required>
@@ -95,7 +95,7 @@
                             </div>
                             <div class="flex flex-col gap-1 w-80">
                                 <label for="jenis_kelamin">
-                                    <span class="text-lg font-semibold">Jenis Kelamin</span>
+                                    <span class="text-lg font-semibold">Jenis Kelamin<sup><strong class="text-red-500">*</strong></sup></span>
                                 </label>
                                 <select name="jenis_kelamin" id="jenis_kelamin" class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none px-2 {{ $errors->has('jenis_kelamin') ? "invalid:border-red-500" : "" }}" required>
                                     <option value="Laki-laki">Laki-Laki</option>
@@ -111,7 +111,7 @@
                         <div class="flex flex-row gap-6">
                             <div class="flex flex-col gap-1 w-80">
                                 <label for="nama_ibu">
-                                    <span class="text-lg font-semibold">Nama Ibu</span>
+                                    <span class="text-lg font-semibold">Nama Ibu<sup><strong class="text-red-500">*</strong></sup></span>
                                 </label>
                                 <input name="nama_ibu" type="text" id="nama_ibu" placeholder="Nama Ibu"
                                     class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2 {{ $errors->has('nama_ibu') ? "invalid:border-red-500" : "" }}" required>
@@ -123,7 +123,7 @@
                             </div>
                             <div class="flex flex-col gap-1 w-80">
                                 <label for="tgl_lahir">
-                                    <span class="text-lg font-semibold">Tanggal Lahir</span>
+                                    <span class="text-lg font-semibold">Tanggal Lahir<sup><strong class="text-red-500">*</strong></sup></span>
                                 </label>
                                 <input name="tgl_lahir" type="date" id="tgl_lahir" 
                                     class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2 {{ $errors->has('tgl_lahir') ? "invalid:border-red-500" : "" }}" required>

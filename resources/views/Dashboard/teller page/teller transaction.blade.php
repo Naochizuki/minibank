@@ -17,18 +17,12 @@
                             <i class="fa-solid fa-money-bill-wave scni"></i>
                         </div>
                         <div class="s-c-name-detail">
-                            @php
-                                $count = 0;
-                                foreach ($todayIns as $today) {
-                                    $count += $today->nominal;
-                                }
-                                echo '<span class="count-category">' . $count . "</span>";
-                            @endphp
+                            <span class="count-category">{{ $todayIns->count() }}</span>
                             <span class="active-category">Transaksi Masuk</span>
                             <span class="spesific-category">Masuk Hari Ini</span>
                         </div>
                     </div>
-                    <a href="{{ url('/teller/dashboard/transaksi') }}" class="s-detail">
+                    <a href="{{ url('/teller/dashboard/transaksi/setor') }}" class="s-detail">
                         <span class="detail-name">Tambah Setoran</span>
                         <div class="detail-icon">
                             <i class="fa-solid fa-circle-arrow-right"></i>
@@ -41,18 +35,12 @@
                             <i class="fa-solid fa-coins scni"></i>
                         </div>
                         <div class="s-c-name-detail rounded-t-xl">
-                            @php
-                                $count = 0;
-                                foreach ($todayOuts as $today) {
-                                    $count += $today->nominal;
-                                }
-                                echo '<span class="count-category">' . $count . "</span>";
-                            @endphp
+                            <span class="count-category">{{ $todayOuts->count() }}</span>
                             <span class="active-category">Transaksi Keluar</span>
                             <span class="spesific-category">Keluar Hari Ini</span>
                         </div>
                     </div>
-                    <a href="{{ url('/teller/dashboard/transaksi') }}" class="s-detail rounded-t-xl">
+                    <a href="{{ url('/teller/dashboard/transaksi/tarik') }}" class="s-detail rounded-t-xl">
                         <span class="detail-name">Tambah Penarikan</span>
                         <div class="detail-icon">
                             <i class="fa-solid fa-circle-arrow-right"></i>
