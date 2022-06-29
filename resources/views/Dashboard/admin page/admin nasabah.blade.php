@@ -18,7 +18,7 @@
                             <div class="btn-add-icon">
                                 <i class="fa-solid fa-plus"></i>
                             </div>
-                            <a href="{{ url('/admindashboard/nasabah/create') }}" class="btn-name">Tambah Nasabah</a>
+                            <a href="{{ url('admin/dashboard/nasabah/tambah') }}" class="btn-name">Tambah Nasabah</a>
                         </button>
                     </div>
                     <div class="bank-data">
@@ -32,15 +32,15 @@
                                         <div class="table-td-bank">Aksi</div>
                                     </div>
                                 </div>
-                                @foreach ($nasabahs as $nasabah)
+                                @foreach ($nasabah as $nasa)
                                 <div class="table-tr-group">
                                     <div class="table-tr">
-                                        <div class="table-td-bank num">{{ $nasabah->id }}</div>
-                                        <div class="table-td-bank num">{{ $nasabah->id_user }}</div>
-                                        <div class="table-td-bank">{{ $nasabah->nama }}</div>
+                                        <div class="table-td-bank num">{{ $nasa->id }}</div>
+                                        <div class="table-td-bank num">{{ $nasa->id_user }}</div>
+                                        <div class="table-td-bank">{{ $nasa->nama }}</div>
                                         <div class="table-td-bank flex justify-center">
-                                            <a href="{{ url('admin/dashboard/nasabah', $id=$nasabah->id) }}">    
-                                                <button type='button' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                            <a href="{{ url('admin/dashboard/nasabah', $id=$nasa->id) }}">    
+                                                <button data-toggle="modal" data-target="#editModal{{$nasa->id}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                                     View
                                                 </button>
                                             </a>                
@@ -52,6 +52,7 @@
                         </div>
                     </div>
                 </div>
+                @include('Dashboard.partials.viewModalNasabah')
             </div>
         </div>
     </div>

@@ -22,17 +22,17 @@
                         @csrf
                         <div class="flex flex-row gap-6">
                             <div class="flex flex-col gap-1 w-80">
-                            <label for="nama">
+                            <label for="code">
                                 <span class="text-lg font-semibold">Code Informasi</span>
                             </label>
-                            <input name="nama" type="text" id="nama" class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2">
+                            <input name="code" type="text" id="code" class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2">
                         </div>
                         <div class="flex flex-col gap-1 w-80">
-                            <label for="no_telp">
+                            <label for="code_value">
                                 <span class="text-lg font-semibold">Detail Informasi</span>
                             </label>
-                            <input name="no_telp" type="text" id="no_telp"
-                                class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2"}}">
+                            <input name="code_value" type="text" id="code_value"
+                                class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2">
                             </div>
                         </div>
                         <div class="mt-4">

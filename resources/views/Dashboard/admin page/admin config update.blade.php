@@ -22,17 +22,18 @@
                         @csrf
                         @foreach ($configs as $config)
                         <div class="flex flex-row gap-6 mb-4">
+                            <input name="{{ 'id'.$config->id }}" type="hidden" id="{{ 'id'.$config->id }}" class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2" value="{{ $config->id }}">
                             <div class="flex flex-col gap-1 w-80">
-                                <label for="nama">
+                                <label for="{{ 'code'.$config->id }}">
                                     <span class="text-lg font-semibold">Code Informasi</span>
                                 </label>
-                                <input name="nama" type="text" id="nama" class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2" value="{{ $config->code }}">
+                                <input name="{{ 'code'.$config->id }}" type="text" id="{{ 'code'.$config->id }}" class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2" value="{{ $config->code }}">
                             </div>
                             <div class="flex flex-col gap-1 w-80">
-                                <label for="no_telp">
+                                <label for="{{ 'code_value'.$config->id }}">
                                     <span class="text-lg font-semibold">Detail Informasi</span>
                                 </label>
-                                <input name="no_telp" type="text" id="no_telp"
+                                <input name="{{ 'code_value'.$config->id }}" type="text" id="{{ 'code_value'.$config->id }}"
                                     class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2" value="{{ $config->code_value }}">
                             </div>
                         </div>
