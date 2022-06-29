@@ -34,8 +34,7 @@
                     <div class="group flex justify-center">
                         <div
                             class="w-full bg-purple-700 text-center rounded-md group-hover:bg-purple-500 transition-all duration-200">
-                            <input type="submit"
-                                class="text-white font-bold text-xl p-2 group-hover:font-semibold transition-all duration-200"><i class="fa-solid fa-right-to-bracket"></i>
+                            <button type="submit" class="text-white font-bold text-xl p-2 group-hover:font-semibold transition-all duration-200"><i class="fa-solid fa-right-to-bracket"></i>Log in</button>
                     </div>
                     </div>
                     <a href="{{ url('/register') }}" class="text-lg text-center text-purple-700 underline underline-offset-2 hover:text-purple-500 transition-all duration-200">Sign Up</a>

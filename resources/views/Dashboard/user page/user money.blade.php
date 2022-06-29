@@ -14,16 +14,29 @@
         <div class="main-content">
             <div class="total-money-container border-transparent shadow-lg rounded-xl">
                 <div class="total-money-name">
-                    <span class="title-total-money">Saldo Keseluruhan sampai dengan hari ini</span>
+                    <span class="title-total-money">Saldo Keseluruhan sampai dengan hari ini: </span>
+                    <span class="total text-xl font-semibold">@currency($transIn[0]->saldo)</span>
                 </div>
                 <div class="total-money-value">
                     <div class="money-category">
-                        <span class="category-name">Total Pemasukan: Rp.</span>
-                        <span class="pemasukan">100.000,00</span>
+                        <span class="category-name">Total Pemasukan: </span>
+                        @php
+                            $count = 0;
+                            foreach ($transIn as $trans) {
+                                $count += $trans->nominal;
+                            }
+                        @endphp
+                        <span class="pemasukan">@currency($count)</span>
                     </div>
                     <div class="money-category">
                         <span class="category-name">Total Pengeluaran: Rp.</span>
-                        <span class="pengeluaran">100.000,00</span>
+                        @php
+                            $count = 0;
+                            foreach ($transOut as $trans) {
+                                $count += $trans->nominal;
+                            }
+                        @endphp
+                        <span class="pengeluaran">@currency($count)</span>
                     </div>
                 </div>
             </div>

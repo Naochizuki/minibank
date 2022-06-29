@@ -69,7 +69,7 @@
                     <div class="profile-container">
                         <div class="profile-picture-container">
                             <div class="user-name-container">
-                                <p class="user-name">Abiyyu Dzaky Muhammad</p>
+                                <p class="user-name">{{ Auth::user()->nama }}</p>
                             </div>
                             <div class="picture-container">
                                 <div class="profile-picture transition-all-500">
@@ -108,12 +108,14 @@
                                 @include('partials.dark mode toggle')
                             </div>
                             <div class="btn-container group">
+                                <a href="{{ url('/logout') }}">
                                 <button class="btn">
                                     <div class="icon-menu">
                                         <i class="fa-solid fa-right-from-bracket icon"></i>
                                     </div>
-                                    <p class="menu-name">Log out</p>
-                                </button>
+                                        <p class="menu-name">Log out</p>
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>

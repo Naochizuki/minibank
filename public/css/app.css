@@ -2273,6 +2273,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 4.5rem;
   line-height: 1;
 }
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
 .font-bold {
   font-weight: 700;
 }

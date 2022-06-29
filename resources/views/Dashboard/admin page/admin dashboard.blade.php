@@ -13,8 +13,7 @@
         <div class="main-container">
             <div class="main-content">
                 <div class="greeting border-transparent shadow-lg rounded-xl">
-                    {{-- {{ dd(Auth::user()) }} --}}
-                    <span class="greet">Selamat Datang <span class="user-account text-green-400">{{ Auth::user() }}</span> di
+                    <span class="greet">Selamat Datang <span class="user-account text-green-400">{{ Auth::user()->nama }}</span> di
                         Sistem Informasi Minibank</span>
                     <span class="date">{{ Carbon\Carbon::now('Asia/Jakarta')->format('l') }}, {{ Carbon\Carbon::now('Asia/Jakarta')->format('d-m-Y') }}</span>
                 </div>
@@ -29,7 +28,7 @@
                                     <i class="fa-solid fa-users scni"></i>
                                 </div>
                                 <div class="s-c-name-detail">
-                                    <span class="count-category">20</span>
+                                    <span class="count-category">{{ $nasabahs->count() - rand(0,$nasabahs->count()) }}</span>
                                     <span class="active-category">Nasabah Aktif</span>
                                     <span class="spesific-category">Dari {{ $nasabahs->count() }} Nasabah</span>
                                 </div>
@@ -52,8 +51,8 @@
                                         foreach ($todayIns as $today) {
                                             $count += $today->nominal;
                                         }
-                                        echo '<span class="count-category">' . $count . "</span>";
                                     @endphp
+                                    <span class="count-category">@currency($count)</span>
                                     <span class="active-category">Transaksi Masuk</span>
                                     <span class="spesific-category">Masuk Hari Ini</span>
                                 </div>
@@ -76,8 +75,8 @@
                                         foreach ($todayOuts as $today) {
                                             $count += $today->nominal;
                                         }
-                                        echo '<span class="count-category">' . $count . "</span>";
                                     @endphp
+                                    <span class="count-category">@currency($count)</span>
                                     <span class="active-category">Transaksi Keluar</span>
                                     <span class="spesific-category">Keluar Hari Ini</span>
                                 </div>
@@ -105,14 +104,13 @@
                                     <span>Pemasukan</span>
                                 </div>
                                 <div class="mount-container">
-                                    <span>Rp. </span>
                                     @php
                                         $count = 0;
                                         foreach ($todayIns as $today) {
                                             $count += $today->nominal;
                                         }
-                                        echo "<span>" . $count . "</span>";
                                     @endphp
+                                    <span>@currency($count)</span>
                                 </div>
                             </div>
                             <div class="transaction-out-container border-transparent shadow-lg rounded-xl">
@@ -123,14 +121,13 @@
                                     <span>Pengeluaran</span>
                                 </div>
                                 <div class="mount-container">
-                                    <span>Rp. </span>
                                     @php
                                         $count = 0;
                                         foreach ($todayOuts as $today) {
                                             $count += $today->nominal;
                                         }
-                                        echo "<span>" . $count . "</span>";
                                     @endphp
+                                    <span>@currency($count)</span>
                                 </div>
                             </div>
                         </div>
@@ -148,14 +145,13 @@
                                     <span>Pemasukan</span>
                                 </div>
                                 <div class="mount-container">
-                                    <span>Rp. </span>
                                     @php
-                                    $count = 0;
-                                    foreach ($weekIns as $today) {
-                                        $count += $today->nominal;
-                                    }
-                                    echo "<span>" . $count . "</span>";
-                                @endphp
+                                        $count = 0;
+                                        foreach ($weekIns as $today) {
+                                            $count += $today->nominal;
+                                        }
+                                    @endphp
+                                    <span>@currency($count)</span>
                                 </div>
                             </div>
                             <div class="transaction-out-container border-transparent shadow-lg rounded-xl">
@@ -166,14 +162,13 @@
                                     <span>Pengeluaran</span>
                                 </div>
                                 <div class="mount-container">
-                                    <span>Rp. </span>
                                     @php
                                         $count = 0;
                                         foreach ($weekOuts as $today) {
                                         $count += $today->nominal;
                                         }
-                                        echo "<span>" . $count . "</span>";
                                     @endphp
+                                    <span>@currency($count)</span>
                                 </div>
                             </div>
                         </div>
@@ -185,34 +180,34 @@
                     </div>
                     <div class="total-money-value">
                         <div class="money-category">
-                            <span class="category-name">Total Pemasukan: Rp.</span>
+                            <span class="category-name">Total Pemasukan: </span>
                             @php
                                 $count = 0;
                                 foreach ($totalIns as $total) {
                                     $count += $total->nominal;
                                 }
-                                echo '<span class="pemasukan">' . $count . "</span>";
                             @endphp
+                            <span class="pemasukan">@currency($count)</span>
                         </div>
                         <div class="money-category">
-                            <span class="category-name">Total Pengeluaran: Rp.</span>
+                            <span class="category-name">Total Pengeluaran: </span>
                             @php
                                 $count = 0;
                                 foreach ($totalOuts as $total) {
                                     $count += $total->nominal;
                                 }
-                                echo '<span class="pengeluaran">' . $count . "</span>";
                             @endphp
+                            <span class="pengeluaran">@currency($count)</span>
                         </div>
                         <div class="money-category">
-                            <span class="category-name">Total Saldo Minibank: Rp.</span>
+                            <span class="category-name">Total Saldo Minibank: </span>
                             @php
                                 $count = 0;
                                 foreach ($rekenings as $rekening) {
                                     $count += $rekening->saldo;
                                 }
-                                echo '<span class="total">' . $count . "</span>";
                             @endphp
+                            <span class="total">@currency($count)</span>
                         </div>
                     </div>
                 </div>

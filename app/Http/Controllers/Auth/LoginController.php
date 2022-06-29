@@ -27,24 +27,16 @@ class LoginController extends Controller {
     
     //backend login logic
     public function actionlogin(Request $request) {
-        // dd($request);
-        // $data = [
-        //     'email' => $request->input('email'),
-        //     'password' => 'password',
-        // ];
         $request->validate([
-            'email' => 'required | email',
+            'email' => 'required|email',
             'password' => 'required',
         ]);
-        $data = $request->only('email', 'password');
-        if(Auth::attempt($data)){
-            $role = DB::table('users')->where('email', $data["email"])->value('role');
-            // $users = DB::table('users')->where('nama', $data['nama'])->get();
-            // $user = $users[0]->nama;
-            // $request->session()->regenerate();
+        $credentials = $request->only('email', 'password');
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
+            $role = DB::table('users')->where('email', $credentials["email"])->value('role');
             if ($role == 'admin'){
                 return redirect('/admin/dashboard');
-                // return redirect()->intended('admin/dashboard')->withSucess('Masuk');
             }elseif($role == 'nasabah'){
                 return redirect('/nasabah/dashboard');
             }elseif($role == 'cs'){
@@ -53,8 +45,9 @@ class LoginController extends Controller {
                 return redirect('/teller/dashboard');
             }
         }else{
-            Session::flash('error', 'Email atau Password Salah');
-            return redirect('/register');
+            return back()->with([
+                'loginError' => 'Email atau Password salah !!'
+            ]);
         }
     }
 
