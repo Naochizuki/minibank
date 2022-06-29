@@ -13,13 +13,23 @@
             <div class="main-container">
                 <div class="main-content">
                     <div class="bank-information-container">
-                        <div class="setting-nav">
-                            <button class="btn-configuration">
-                                <div class="btn-configuration-icon">
-                                    <i class="fa-solid fa-plus"></i>
-                                </div>
-                                <span class="btn-name">Tambah Konfigurasi</span>
-                            </button>
+                        <div class="setting-nav gap-3">
+                            <a href="{{ url('admin/dashboard/bank/tambah') }}">
+                                <button class="btn-configuration">
+                                    <div class="btn-configuration-icon">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                    <span class="btn-name">Tambah Konfigurasi</span>
+                                </button>
+                            </a>
+                            <a href="{{ url('admin/dashboard/bank/update') }}">
+                                <button class="btn-configuration">
+                                    <div class="btn-configuration-icon">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </div>
+                                    <span class="btn-name">Edit Konfigurasi</span>
+                                </button>
+                            </a>
                         </div>
                         <div class="bank-data">
                             <div class="table-data">
@@ -38,11 +48,6 @@
                                         <div class="table-td-bank">{{ $config->code }}</div>
                                         <div class="table-td-bank">{{ $config->code_value }}</div>
                                         <div class="table-td-bank flex justify-center gap-3">
-                                            <a href="{{ url('admin/dashboard/bank', $id=$config->id) }}">
-                                                <button type='button' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                                    Edit
-                                                </button>
-                                            </a>
                                             <a href="{{ url('admin/dashboard/bank/delete', $id=$config->id) }}">
                                                 <button type='button' class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                                                     Delete

@@ -44,6 +44,11 @@ Route::controller(TellerController::class)->prefix('teller')->name('teller.')->g
 Route::controller(AdminController::class)->prefix('admin')->name('admin.')->group(function () {
     Route::get('dashboard', 'showAdminDashboard')->name('AdminDashboard');
     Route::get('dashboard/bank', 'showAdminBank')->name('AdminBank');
+    Route::get('dashboard/bank/tambah', 'showAdminConfigAdd')->name('AdminBankAdd');
+    Route::post('dashboard/bank/tambah', 'configStore')->name('AdminBankStore');
+    Route::get('dashboard/bank/update', 'showAdminConfigUpdate')->name('AdminBankUpdate');
+    Route::post('dashboard/bank/update', 'configUpdate')->name('AdminBankUpdateProcces');
+    Route::get('dashboard/bank/delete/{id}', 'configDestroy')->name('AdminDeleteConfig');
     Route::get('dashboard/cs', 'showAdminCs')->name('AdminCS');
     Route::get('dashboard/teller', 'showAdminTeller')->name('AdminTeller');
     Route::get('dashboard/nasabah', 'showAdminNasabah')->name('AdminNasabah');

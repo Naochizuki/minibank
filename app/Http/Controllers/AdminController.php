@@ -77,6 +77,49 @@ class AdminController extends Controller
         return redirect()->action([AdminController::class, 'showAdminNasabah']);
     }
 
+    public function showAdminConfigAdd() {
+        return view('Dashboard.admin page.admin config add');
+    }
+
+    public function showAdminConfigUpdate() {
+        $configs = Konfigurasi::get();
+        return view('Dashboard.admin page.admin config update', compact('configs'));
+    }
+
+    public function configStore(Request $request)
+    {
+        $request->validate([
+            'code' => 'required',
+            'code_value' => 'required'
+        ]);
+
+        Konfigurasi::create([
+            'code' => $request->input('code'),
+            'code_value' => $request->input('code_value')
+        ]);
+
+        return redirect()->action([AdminController::class, 'showAdminBank']);
+    }
+
+    public function configUpdate(Request $request)
+    {
+        $config = Konfigurasi::where('id', $request->input('id'))->get();
+
+        $config->code = $request->input('code');
+        $config->code_value = $request->input('code_value');
+        $config->save();
+
+        return redirect()->action([AdminController::class, 'showAdminBank']);
+    }
+
+    public function configDestroy(Request $request) 
+    {
+        $id = $request->id;
+        Konfigurasi::where('id', $id)->delete();
+
+        return redirect()->action([AdminController::class, 'showAdminBank']);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
