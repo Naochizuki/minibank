@@ -34,7 +34,7 @@
                             Daftar Rekening
                         </p>
                         <div class="mt-5 absolute bottom-9 text-purple-600 dark:text-indigo-600">
-                            <a href="{{ url('nasabah/dashboard/transaksi') }}">
+                            <a href="{{ url('cs/dashboard/tambah/rekening') }}">
                                 <p class="text-center">More ></p>
                             </a>
                         </div>

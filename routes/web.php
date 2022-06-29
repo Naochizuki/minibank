@@ -47,6 +47,12 @@ Route::controller(AdminController::class)->prefix('admin')->name('admin.')->grou
     Route::get('dashboard/cs', 'showAdminCs')->name('AdminCS');
     Route::get('dashboard/teller', 'showAdminTeller')->name('AdminTeller');
     Route::get('dashboard/nasabah', 'showAdminNasabah')->name('AdminNasabah');
+    Route::post('/create', 'storecs')->name('store');
+    Route::post('/update/{user}','updatecs')->name('update');
+    Route::post('/delete/{user}','destroycs')->name('destroy');
+    Route::post('/create1', 'storeteller')->name('store');
+    Route::post('/update1/{user}','updateteller')->name('update');
+    Route::post('/delete1/{user}','destroyteller')->name('destroy');
 });
 
 Route::get("/", [LoginController::class, "show"]);
