@@ -32,7 +32,7 @@ Route::controller(NasabahController::class)->prefix('nasabah')->name('nasabah.')
 Route::controller(CSController::class)->prefix('cs')->name('cs.')->group(function () {
     Route::get('dashboard', 'showCsDashboard')->name('CSDashboard');
     Route::get('dashboard/tambah/nasabah', 'showCsTambahAkun')->name('CSTambahAkun');
-    Route::get('dashboard/tambah/teller', 'showCsTambahRekening')->name('CSTambahRekening');
+    Route::get('dashboard/tambah/rekening', 'showCsTambahRekening')->name('CSTambahRekening');
 });
 
 Route::controller(TellerController::class)->prefix('teller')->name('teller.')->group(function () {
@@ -54,6 +54,12 @@ Route::controller(AdminController::class)->prefix('admin')->name('admin.')->grou
     Route::get('dashboard/nasabah', 'showAdminNasabah')->name('AdminNasabah');
     Route::get('dashboard/nasabah/{id}', 'showView')->name('AdminViewNasabah');
     Route::get('dashboard/nasabah/delete/{id}', 'nasabahDestroy')->name('AdminDeleteNasabah');
+    Route::post('/create', 'storecs')->name('store');
+    Route::post('/update/{user}','updatecs')->name('update');
+    Route::post('/delete/{user}','destroycs')->name('destroy');
+    Route::post('/create1', 'storeteller')->name('store');
+    Route::post('/update1/{user}','updateteller')->name('update');
+    Route::post('/delete1/{user}','destroyteller')->name('destroy');
 });
 
 Route::get("/", [LoginController::class, "show"]);

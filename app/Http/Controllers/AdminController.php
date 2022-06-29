@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Rekening;
 use App\Models\Nasabah;
+use Faker\Factory as Faker;
 use App\Models\Transaksi;
 use App\Models\Konfigurasi;
 use Carbon\Carbon;
@@ -137,9 +138,44 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function storecs(Request $request){
+    
+
+        $request->validate([
+            'nama' => 'required|max:255|min:2',
+        ]);
+
+        $faker = Faker::create('id_ID');
+        $encrypted = bcrypt('password');
+        
+        $user = User::create([
+            'nama' =>  $request['nama'],
+            'role' => 'cs',
+            'email' => $faker->unique()->safeEmail(),
+            'password' => $encrypted,
+         ]);
+
+         return redirect('/admin/dashboard/cs')->with('status', 'CS Berhasil ditambah!');
+    }
+
+    public function storeteller(Request $request){
+    
+
+        $request->validate([
+            'nama' => 'required|max:255|min:2',
+        ]);
+
+        $faker = Faker::create('id_ID');
+        $encrypted = bcrypt('password');
+        
+        $user = User::create([
+            'nama' =>  $request['nama'],
+            'role' => 'teller',
+            'email' => $faker->unique()->safeEmail(),
+            'password' => $encrypted,
+         ]);
+
+         return redirect('/admin/dashboard/teller')->with('status', 'Teller Berhasil ditambah!');
     }
 
     /**
@@ -171,19 +207,46 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updatecs(Request $request,User $user)
     {
-        //
+        $request->validate([
+            'nama' => 'required|max:255|min:2',
+        ]);
+
+        $user->nama = $request['nama'];
+        $user->save();
+
+        return redirect('/admin/dashboard/cs')->with('status', 'CS Berhasil diedit!');
+     
     }
 
+    public function updateteller(Request $request,User $user)
+    {
+        $request->validate([
+            'nama' => 'required|max:255|min:2',
+        ]);
+
+        $user->nama = $request['nama'];
+        $user->save();
+
+        return redirect('/admin/dashboard/teller')->with('status', 'Teller Berhasil diedit!');
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroycs(User $user)
     {
-        //
+        $user->delete();
+        return redirect('/admin/dashboard/cs')->with('status', 'CS Berhasil dihapus!');
+    }
+
+    public function destroyteller(User $user)
+    {
+        $user->delete();
+        return redirect('/admin/dashboard/teller')->with('status', 'Teller Berhasil dihapus!');
     }
 }
+

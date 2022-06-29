@@ -2108,6 +2108,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   -moz-column-gap: 1.5rem;
        column-gap: 1.5rem;
 }
+.self-auto {
+  align-self: auto;
+}
 .overflow-hidden {
   overflow: hidden;
 }
