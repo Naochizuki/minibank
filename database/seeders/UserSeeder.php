@@ -20,15 +20,12 @@ class UserSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('id_ID');
-        $gender = $faker->randomElement(['Laki-laki', 'Perempuan']);
-        // $userpass = 'password';
         $encrypted = bcrypt('password');
-        // $decrypted = Crypt::decryptString($encrypted);
 
         for ($i = 0; $i < 100; $i++) {
             DB::table('users')->insert([
-                // 'foto' => $faker->name($gender),
-                'nama' => $faker->name($gender),
+                'foto' => 'foto/8W7MYIFUkRk6wxv7O38YMk1RiYRFF93yw21xQlvv.png',
+                'nama' => $faker->name($faker->randomElement(['Laki-laki', 'Perempuan'])),
                 'email' => $faker->unique()->safeEmail(),
                 'role' => $faker->randomElement(['admin', 'teller', 'cs', 'nasabah']),
                 'password' => $encrypted,

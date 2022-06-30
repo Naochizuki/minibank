@@ -290,6 +290,24 @@
         @apply dark:bg-slate-800;
     }
     
+    .profile-container-auth {
+        @apply absolute;
+        @apply top-0;
+        @apply right-1;
+        @apply w-32;
+        @apply h-32;
+        @apply pt-1;
+        @apply overflow-hidden;
+        @apply transition-all-500;
+        @apply border;
+        @apply border-solid;
+        @apply border-transparent;
+        @apply rounded-md;
+        @apply bg-white;
+        @apply sm:w-46;
+        @apply dark:bg-slate-800;
+    }
+    
     .profile-container-active {
         @apply w-34;
         @apply sm:w-46;

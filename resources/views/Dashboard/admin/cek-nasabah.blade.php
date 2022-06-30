@@ -14,6 +14,15 @@
             <div class="main-content">
                 @for ($i = 0; $i < $nasabah->count(); $i++)
                 <div class="flex flex-col items-center border border-solid border-slate-200 rounded-lg bg-white shadow-md shadow-slate-400 mt-10 p-4">
+                    <div class="flex flex-row gap-6 mb-3">
+                        <div class="picture-container w-32 h-32">
+                                <div class="profile-picture overflow-hidden">
+                                    @if ($users[$i]->foto)
+                                        <img src="{{ Storage::url($users[$i]->foto) }}" alt="{{ $nasabah[$i]->nama }}">
+                                    @endif
+                                </div>
+                            </div>
+                    </div>
                     <div class="flex flex-row gap-6">
                         <div class="flex flex-col gap-1 w-80">
                             <label for="nama">

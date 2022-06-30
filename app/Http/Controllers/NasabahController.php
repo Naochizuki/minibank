@@ -8,11 +8,13 @@ use App\Models\Rekening;
 use App\Models\Transaksi;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class NasabahController extends Controller
 {
     // view Nasabah
     public function show() {
+        // dd(Storage::url('app/public/'.Auth::user()->foto));
         return view('Dashboard.nasabah.dashboard');
     }
 

@@ -72,8 +72,10 @@
                                 <p class="user-name">{{ Auth::user()->nama }}</p>
                             </div>
                             <div class="picture-container">
-                                <div class="profile-picture transition-all-500">
-                                    <img src="" alt="">
+                                <div class="profile-picture transition-all-500 overflow-hidden">
+                                    @if (Auth::user()->foto)
+                                        <img src="{{ Storage::url(Auth::user()->foto) }}" alt="{{ Auth::user()->id }}">
+                                    @endif
                                 </div>
                             </div>
                         </div>

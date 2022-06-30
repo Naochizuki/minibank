@@ -135,20 +135,6 @@
                                     @endif
                             </div>
                         </div>
-                        <div class="flex flex-row gap-6">
-                            <div class="flex flex-col gap-1 w-80">
-                                <label for="foto">
-                                    <span class="text-lg font-semibold">Foto Profil<sup><strong class="text-red-500">*</strong></sup></span>
-                                </label>
-                                <input name="foto" type="file" id="foto" 
-                                    class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none px-2 py-[1px] {{ $errors->has('foto') ? "invalid:border-red-500" : "" }}" required>
-                                    @if ($errors->has('foto'))
-                                      <div class="text-red-500 text-xs" role="alert">
-                                         <strong>{{$errors->first('foto')}}</strong>
-                                      </div>
-                                    @endif
-                            </div>
-                        </div>
                         <div class="h-8"></div>
                             <div class="group flex justify-center">
                                 <a href=""

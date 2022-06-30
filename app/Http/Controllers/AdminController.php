@@ -144,11 +144,9 @@ class AdminController extends Controller {
         ]);
         $encrypted = bcrypt('password');
 
-        $path = Storage::disk('public')->putFile('foto', $request->file('foto'));
-
         $user_id = User::insertGetId([
-            'foto' =>  $path,
-            'nama' =>  $request->input('nama'),
+            'foto' => 'foto/8W7MYIFUkRk6wxv7O38YMk1RiYRFF93yw21xQlvv.png',
+            'nama' => $request->input('nama'),
             'role' => 'nasabah',
             'email' => $request->input('email'),
             'password' => $encrypted,
@@ -195,6 +193,7 @@ class AdminController extends Controller {
         $encrypted = bcrypt('password');
 
         $user = User::create([
+            'foto' => 'foto/8W7MYIFUkRk6wxv7O38YMk1RiYRFF93yw21xQlvv.png',
             'nama' =>  $request['nama'],
             'role' => 'cs',
             'email' => $faker->unique()->safeEmail(),
@@ -217,6 +216,7 @@ class AdminController extends Controller {
         $encrypted = bcrypt('password');
 
         $user = User::create([
+            'foto' => 'foto/8W7MYIFUkRk6wxv7O38YMk1RiYRFF93yw21xQlvv.png',
             'nama' =>  $request['nama'],
             'role' => 'teller',
             'email' => $faker->unique()->safeEmail(),
