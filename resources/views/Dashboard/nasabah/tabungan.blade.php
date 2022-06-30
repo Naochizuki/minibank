@@ -1,9 +1,9 @@
-@extends('Dashboard.layout.dashboard main')
+@extends('Dashboard.layout.main')
 
 @section('title', 'Tabungan')
 
 @section('header-vertical-content')
-    @include('Dashboard.partials.user header')
+    @include('Dashboard.partials.nasabah-header')
 @endsection
 
 @section('content')
@@ -12,10 +12,23 @@
     <div class="main-fill-horizontal"></div>
     <div class="main-container">
         <div class="main-content">
+            @if ($rek->count() == 0)
+                <div class="total-money-container border-transparent shadow-lg rounded-xl">
+                <div class="total-money-name">
+                    <span class="title-total-money">Anda belum memiliki rekening</span>
+                </div>
+            </div>
+            @else
             <div class="total-money-container border-transparent shadow-lg rounded-xl">
                 <div class="total-money-name">
                     <span class="title-total-money">Saldo Keseluruhan sampai dengan hari ini: </span>
-                    <span class="total text-xl font-semibold">@currency($transIn[0]->saldo)</span>
+                    @php
+                        $count = 0;
+                        foreach ($rek as $reks) {
+                            $count += $reks->saldo;
+                        }
+                    @endphp
+                    <span class="total text-xl font-semibold">@currency($count)</span>
                 </div>
                 <div class="total-money-value">
                     <div class="money-category">
@@ -49,10 +62,14 @@
                     </div>
                 </div>
                 @foreach ($rek as $rekening)
-                <div class="total-money-value">
+                <div class="total-money-value mb-3">
                     <div class="money-category">
                         <span class="category-name w-58 inline-block">Nomor Rekening</span>
                         <span>: {{ $rekening->no_rekening }}</span>
+                    </div>
+                    <div class="money-category">
+                        <span class="category-name w-58 inline-block">Saldo</span>
+                        <span>: @currency($rekening->saldo)</span>
                     </div>
                     <div class="money-category">
                         <span class="category-name w-58 inline-block">Tanggal Pembuatan Rekening</span>
@@ -60,10 +77,11 @@
                     </div>
                     <div class="money-category">
                         <span class="category-name w-58 inline-block">Masa Berlaku</span>
-                        <span>: {{ $rekening->created_at->addDay(1825)->format('d-m-Y') }}</span>
+                        <span>: {{ $rekening->created_at->addYears(5)->format('d-m-Y') }}</span>
                     </div>
                 </div>
                 @endforeach
             </div>
+            @endif
         </div>
 @endsection

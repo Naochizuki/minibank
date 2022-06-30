@@ -16,7 +16,7 @@ class TellerController extends Controller
     // view Teller
     public function showTellerDashboard()
     {
-        return view('Dashboard.teller page.teller dashboard');
+        return view('Dashboard.teller.dashboard');
     }
 
     public function showTellerTransaksi()
@@ -31,34 +31,34 @@ class TellerController extends Controller
         $todayOuts = Transaksi::where('tgl_transaksi', $today, 1)->where('jenis_transaksi', 'Pengeluaran',1)->get();
         $weekIns = Transaksi::where('tgl_transaksi', '>=', $weekEnds)->where('tgl_transaksi', '<=', $weekStart)->where('jenis_transaksi', 'Pemasukan')->get();
         $weekOuts = Transaksi::where('tgl_transaksi', '>=', $weekEnds)->where('tgl_transaksi', '<=', $weekStart)->where('jenis_transaksi', 'Pengeluaran')->get();
-        return view('Dashboard.teller page.teller transaction', compact(['nasabahs', 'todayIns', 'todayOuts', 'weekIns', 'weekOuts', 'rekenings']));
+        return view('Dashboard.teller.transaksi', compact(['nasabahs', 'todayIns', 'todayOuts', 'weekIns', 'weekOuts', 'rekenings']));
     }
 
     public function showTellerMutationView(Request $request)
     {
         $no_rek = $request->no_rek;
         $transaksis = Transaksi::join('rekening', 'transaksi.id_rekening', '=', 'rekening.id')->join('nasabah', 'rekening.id_nasabah', '=', 'nasabah.id')->where('rekening.no_rekening', $no_rek)->OrderBy('transaksi.tgl_transaksi')->get();
-        return view('Dashboard.teller page.teller mutation view', compact('transaksis'));
+        return view('Dashboard.teller.cek-mutasi', compact('transaksis'));
     }
 
     public function showTellerMutation()
     {
-        $rekenings = Rekening::join('nasabah', 'rekening.id_nasabah', '=', 'nasabah.id')->OrderBy('rekening.id')->get();
-        return view('Dashboard.teller page.teller mutation', compact('rekenings'));
+        $rekenings = Rekening::join('nasabah', 'rekening.id_nasabah', '=', 'nasabah.id')->OrderBy('nasabah.id')->get();
+        return view('Dashboard.teller.mutasi', compact('rekenings'));
     } 
 
     public function showTellerTransaksiSetor()
     {
         $nasabahs = Nasabah::get();
         $rekenings = Rekening::get();
-        return view('Dashboard.teller page.teller transaction in', compact(['rekenings', 'nasabahs']));
+        return view('Dashboard.teller.transaksi-setor', compact(['rekenings', 'nasabahs']));
     }
 
     public function showTellerTransaksiTarik()
     {
         $nasabahs = Nasabah::get();
         $rekenings = Rekening::get();
-        return view('Dashboard.teller page.teller transaction out', compact(['rekenings', 'nasabahs']));
+        return view('Dashboard.teller.transaksi-tarik', compact(['rekenings', 'nasabahs']));
     }
 
     public function addTellerTransaksiSetor(Request $request)
@@ -98,7 +98,7 @@ class TellerController extends Controller
         Transaksi::insert([
             'id_rekening' => $request->input('id_rekening'),
             'tgl_transaksi' => Carbon::now('Asia/Jakarta')->format('Y-m-d'),
-            'jenis_transaksi' => 'Pemasukan',
+            'jenis_transaksi' => 'Pengeluaran',
             'nominal' => $request->input('saldo'),
             'created_by' => 1,
             'updated_by' => 1,

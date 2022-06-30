@@ -27,6 +27,7 @@ class UserSeeder extends Seeder
 
         for ($i = 0; $i < 100; $i++) {
             DB::table('users')->insert([
+                // 'foto' => $faker->name($gender),
                 'nama' => $faker->name($gender),
                 'email' => $faker->unique()->safeEmail(),
                 'role' => $faker->randomElement(['admin', 'teller', 'cs', 'nasabah']),

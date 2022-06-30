@@ -2172,6 +2172,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-r {
   border-right-width: 1px;
 }
+.border-b {
+  border-bottom-width: 1px;
+}
 .border-solid {
   border-style: solid;
 }
@@ -2193,6 +2196,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .border-transparent {
   border-color: transparent;
+}
+.border-slate-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(100 116 139 / var(--tw-border-opacity));
 }
 .bg-purple-700 {
   --tw-bg-opacity: 1;
@@ -2252,6 +2259,26 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+.py-0\.5 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.py-\[\] {
+  padding-top: ;
+  padding-bottom: ;
+}
+.py-\[1px\] {
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 .pb-40 {
   padding-bottom: 10rem;

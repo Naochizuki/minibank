@@ -1,9 +1,9 @@
-@extends('Dashboard.layout.dashboard main')
+@extends('Dashboard.layout.main')
 
-@section('title', 'Dashboard')
+@section('title', 'Cek Mutasi')
 
 @section('header-vertical-content')
-    @include('Dashboard.partials.teller header')
+    @include('Dashboard.partials.teller-header')
 @endsection
 
 @section('content')

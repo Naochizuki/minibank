@@ -1,9 +1,9 @@
-@extends('Dashboard.layout.dashboard main')
+@extends('Dashboard.layout.main')
 
-@section('title', 'Dashboard')
+@section('title', 'Nasabah')
 
 @section('header-vertical-content')
-    @include('Dashboard.partials.admin header')
+    @include('Dashboard.partials.admin-header')
 @endsection
 
 @section('content')
@@ -52,7 +52,6 @@
                         </div>
                     </div>
                 </div>
-                @include('Dashboard.partials.viewModalNasabah')
             </div>
         </div>
     </div>

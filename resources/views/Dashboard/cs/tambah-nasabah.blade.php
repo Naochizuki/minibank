@@ -1,9 +1,9 @@
-@extends('Dashboard.layout.dashboard main')
+@extends('Dashboard.layout.main')
 
-@section('title', 'Dashboard')
+@section('title', 'Tambah Nasabah')
 
 @section('header-vertical-content')
-    @include('Dashboard.partials.cs header')
+    @include('Dashboard.partials.cs-header')
 @endsection
 @section('content')
 <div class="main-fill-vertical transition-all-500"></div>
@@ -12,14 +12,14 @@
         <div class="main-container">
             <div class="main-content">
                 <div class="border border-solid border-slate-200 rounded-lg bg-white shadow-md shadow-slate-400 mt-10 p-4">
-                    <form action="{{ url('cs/dashboard/nasabah/tambah') }}" method="POST" class="flex flex-col items-center">
+                    <form action="{{ url('cs/dashboard/tambah/nasabah') }}" method="POST" class="flex flex-col items-center">
                         @csrf
                         <div class="flex flex-row gap-6">
                             <div class="flex flex-col gap-1 w-80">
                                 <label for="name">
                                     <span class="text-lg font-semibold">Nama<sup><strong class="text-red-500">*</strong></sup></span>
                                 </label>
-                                <input name="nama" type="text" id="name" placeholder="name"
+                                <input name="nama" type="text" id="name" placeholder="Nama"
                                     class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2 {{ $errors->has('nama') ? "invalid:border-red-500" : "" }}" required>
                                     @if ($errors->has('nama'))
                                       <div class="text-red-500 text-xs" role="alert">

@@ -1,9 +1,9 @@
-@extends('Dashboard.layout.dashboard main')
+@extends('Dashboard.layout.main')
 
-@section('title', 'Dashboard')
+@section('title', 'Mutasi')
 
 @section('header-vertical-content')
-    @include('Dashboard.partials.teller header')
+    @include('Dashboard.partials.nasabah-header')
 @endsection
 
 @section('content')
@@ -18,8 +18,7 @@
                             <div class="table-header">
                                 <div class="table-tr">
                                     <div class="table-td">No.</div>
-                                    <div class="table-td">Pemilik Rekening</div>
-                                    <div class="table-td">Nomor Rekening</div>
+                                    <div class="table-td text-center">Nomor Rekening</div>
                                     <div class="table-td">Aksi</div>
                                 </div>
                             </div>
@@ -27,10 +26,9 @@
                                 @foreach ($rekenings as $rekening)
                                 <div class="table-tr">
                                     <div class="table-td">{{ $loop->iteration }}</div>
-                                    <div class="table-td">{{ $rekening->nama }}</div>
                                     <div class="table-td">{{ $rekening->no_rekening }}</div>
                                     <div class="table-td-bank flex justify-center">
-                                        <a href="{{ url('teller/dashboard/mutasi', $no_rek=$rekening->no_rekening) }}">    
+                                        <a href="{{ url('nasabah/dashboard/mutasi', $no_rek=$rekening->no_rekening) }}">    
                                             <button data-toggle="modal" data-target="#editModal{{$rekening->no_rekening}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                                 View
                                             </button>

@@ -1,9 +1,9 @@
-@extends('Dashboard.layout.dashboard main')
+@extends('Dashboard.layout.main')
 
 @section('title', 'Dashboard')
 
 @section('header-vertical-content')
-    @include('Dashboard.partials.cs header')
+    @include('Dashboard.partials.cs-header')
 @endsection
 @section('content')
     <div class="main-content">

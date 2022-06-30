@@ -1,9 +1,9 @@
-@extends('Dashboard.layout.dashboard main')
+@extends('Dashboard.layout.main')
 
-@section('title', 'Dashboard')
+@section('title', 'Setor')
 
 @section('header-vertical-content')
-    @include('Dashboard.partials.teller header')
+    @include('Dashboard.partials.teller-header')
 @endsection
 @section('content')
 <div class="main-fill-vertical transition-all-500"></div>
@@ -29,7 +29,7 @@
                         <div class="flex flex-row gap-6 mt-4">
                             <div class="flex flex-col gap-1 w-80">
                                 <label for="saldo">
-                                    <span class="text-lg font-semibold mr-1">Jumlah penarikan<sup><strong class="text-red-500">*</strong></sup></span>
+                                    <span class="text-lg font-semibold mr-1">Jumlah setoran<sup><strong class="text-red-500">*</strong></sup></span>
                                 </label>
                                 <input name="saldo" type="number" id="saldo" placeholder="Saldo"
                                     class="h-8 border border-solid border-slate-400 rounded-md text-sm focus:outline-none p-2 {{ $errors->has('saldo') ? "invalid:border-red-500" : "" }}" required value="500000">
@@ -42,10 +42,9 @@
                         </div>
                         <div class="h-8"></div>
                             <div class="group flex justify-center">
-                                <a href=""
-                                    class="w-full h-10 bg-purple-700 text-center rounded-md group-hover:bg-purple-500 transition-all duration-200">
+                                <div class="w-full h-10 bg-purple-700 text-center rounded-md group-hover:bg-purple-500 transition-all duration-200">
                                     <button type="submit" class="text-white font-bold text-xl p-2 group-hover:font-semibold transition-all duration-200">Tambah</button>
-                                </a>
+                                </div>
                             </div>
                         </div>
                     </form>

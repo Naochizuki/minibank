@@ -29,7 +29,8 @@ Route::group(['middleware' => ['web']], function() {
     Route::controller(NasabahController::class)->prefix('nasabah')->name('nasabah.')->group(function () {
         Route::get('/dashboard', 'show')->name('NasabahDashboard');
         Route::get('/dashboard/tabungan', 'showTabungan')->name('NasabahTabungan');
-        Route::get('/dashboard/transaksi', 'showTransaksi')->name('NasabahTransaksi');
+        Route::get('/dashboard/mutasi', 'showTransaksi')->name('NasabahTransaksi');
+        Route::get('/dashboard/mutasi/{no_rek}', 'viewTransaksi')->name('NasabahTransaksiView');
     });
     
     Route::controller(CSController::class)->prefix('cs')->name('cs.')->group(function () {

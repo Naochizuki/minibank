@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Nasabah;
 use App\Models\Rekening;
+use App\Models\Transaksi;
 use Faker\Factory as Faker;
 use Carbon\Carbon;
 
@@ -14,22 +15,23 @@ class CSController extends Controller
     // view CS
     public function showCsDashboard()
     {
-        return view('Dashboard.cs page.cs dashboard');
+        return view('Dashboard.cs.dashboard');
     }
 
     public function showCsTambahAkun()
     {
-        return view('Dashboard.cs page.cs add');
+        return view('Dashboard.cs.tambah-nasabah');
     }
 
     public function showCsTambahRekening()
     {
         $nasabahs = Nasabah::get();
-        return view('Dashboard.cs page.cs add account', compact('nasabahs'));
+        return view('Dashboard.cs.tambah-rekening', compact('nasabahs'));
     }
 
     public function createCsNasabah(Request $request)
     {
+        $before = Carbon::now('Asia/Jakarta')->subYears(17)->format('Y-m-d');
         $request->validate([
             'nama' => 'required|max:255|min:2',
             'email' => 'required|email|unique:users,email',
@@ -39,7 +41,7 @@ class CSController extends Controller
             'nik' => 'required',
             'jenis_kelamin' => 'required',
             'nama_ibu' => 'required',
-            'tgl_lahir' => 'required'
+            'tgl_lahir' => 'required|date|before:' . $before,
         ]);
         $encrypted = bcrypt('password');
 
@@ -67,36 +69,55 @@ class CSController extends Controller
             'updated_at' => Carbon::now('Asia/Jakarta'),
         ]);
 
-        return redirect()->action([CSController::class, 'showCsTambahAkun']);
+        return redirect()->action([CSController::class, 'showCsDashboard']);
     }
 
     public function createCsRekening(Request $request)
     {
         $faker = Faker::create('id_ID');
         $no_rek = $faker->unique()->numberBetween(11111111, 99999999);
+        $cek = 1;
         
-        $rekenings = Rekening::get('no_rekening');
+        $rekenings = Rekening::get();
         foreach($rekenings as $rekening) {
-            if ($no_rek != $rekening->no_rekening) {
-                $request->validate([
-                    'id_nasabah' => 'required',
-                    'saldo' => 'required|min:500000',
-                ]);
-        
-                Rekening::insert([
-                    'id_nasabah' => $request->input('id_nasabah'),
-                    'no_rekening' => $faker->unique()->numberBetween(11111111, 99999999),
-                    'saldo' => $request->input('saldo'),
-                    'created_by' => 1,
-                    'updated_by' => 1,
-                    'created_at' => Carbon::now('Asia/Jakarta'),
-                    'updated_at' => Carbon::now('Asia/Jakarta'),
-                ]);
+            if($no_rek != $rekening->no_rekening) {
+                $cek = 1;
             } else {
-                return redirect()->route('cs.CSTambahRekeningStore');
+                $cek = 0;
             }
         }
+        if ($cek === 1) {
+            $request->validate([
+                'id_nasabah' => 'required',
+                'saldo' => 'required|numeric|min:499999',
+            ]);
 
-        return redirect()->action([CSController::class, 'showCsTambahRekening']);
+            $rek_id = Rekening::insertGetId([
+                'id_nasabah' => $request->input('id_nasabah'),
+                'no_rekening' => $no_rek,
+                'saldo' => $request->input('saldo'),
+                'created_by' => 1,
+                'updated_by' => 1,
+                'created_at' => Carbon::now('Asia/Jakarta'),
+                'updated_at' => Carbon::now('Asia/Jakarta'),
+            ]);
+            
+            Transaksi::insert([
+                'id_rekening' => $rek_id,
+                'tgl_transaksi' => Carbon::now('Asia/Jakarta')->format('Y-m-d'),
+                'jenis_transaksi' => 'Pemasukan',
+                'nominal' => $request->input('saldo'),
+                'created_by' => 1,
+                'updated_by' => 1,
+                'created_at' => Carbon::now('Asia/Jakarta'),
+                'updated_at' => Carbon::now('Asia/Jakarta'),
+            ]);
+        } else {
+            return redirect()->route('cs.CSTambahRekeningStore');
+        }
+
+
+
+        return redirect()->action([CSController::class, 'showCsDashboard']);
     }
 }

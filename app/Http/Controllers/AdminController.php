@@ -11,6 +11,7 @@ use Faker\Factory as Faker;
 use App\Models\Transaksi;
 use App\Models\Konfigurasi;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller {
     /**
@@ -32,35 +33,35 @@ class AdminController extends Controller {
         $weekOuts = Transaksi::where('tgl_transaksi', '>=', $weekEnds)->where('tgl_transaksi', '<=', $weekStart)->where('jenis_transaksi', 'Pengeluaran')->get();
         $totalIns = Transaksi::where('jenis_transaksi', 'Pemasukan')->get();
         $totalOuts = Transaksi::where('jenis_transaksi', 'Pengeluaran')->get();
-        return view('Dashboard.admin page.admin dashboard', compact(['nasabahs', 'todayIns', 'todayOuts', 'weekIns', 'weekOuts', 'totalIns', 'totalOuts', 'rekenings']));
+        return view('Dashboard.admin.dashboard', compact(['nasabahs', 'todayIns', 'todayOuts', 'weekIns', 'weekOuts', 'totalIns', 'totalOuts', 'rekenings']));
     }
 
     public function showAdminBank() {
         $configs = Konfigurasi::get();
-        return view('Dashboard.admin page.admin bank', compact('configs'));
+        return view('Dashboard.admin.bank', compact('configs'));
     }
 
     public function showAdminCs() {
         $users = User::where('role', 'cs')->get();
-        return view('Dashboard.admin page.admin cs', compact('users'));
+        return view('Dashboard.admin.cs', compact('users'));
     }
 
     public function showAdminTeller() {
         $users = User::where('role', 'teller')->get();
-        return view('Dashboard.admin page.admin teller', compact('users'));
+        return view('Dashboard.admin.teller', compact('users'));
     }
 
     public function showAdminNasabah() {
         $nasabah = Nasabah::get();
         $users = User::join('nasabah', 'users.id', '=', 'nasabah.id_user')->get('email');
-        return view('Dashboard.admin page.admin nasabah', compact(['nasabah', 'users']));
+        return view('Dashboard.admin.nasabah', compact(['nasabah', 'users']));
     }
 
     public function showView(Request $request) {
         $id = $request->id;
         $nasabah = Nasabah::where('id', $id)->get();
         $users = User::join('nasabah', 'users.id', '=', 'nasabah.id_user')->where('nasabah.id', '=', $id)->get();                       
-        return view('Dashboard.admin page.admin nasabah view', compact(['nasabah', 'users', 'id']));
+        return view('Dashboard.admin.cek-nasabah', compact(['nasabah', 'users', 'id']));
     }
 
     public function nasabahDestroy(Request $request) {
@@ -74,12 +75,12 @@ class AdminController extends Controller {
     }
 
     public function showAdminConfigAdd() {
-        return view('Dashboard.admin page.admin config add');
+        return view('Dashboard.admin.tambah-config');
     }
 
     public function showAdminConfigUpdate() {
         $configs = Konfigurasi::get();
-        return view('Dashboard.admin page.admin config update', compact('configs'));
+        return view('Dashboard.admin.edit-config', compact('configs'));
     }
 
     public function configStore(Request $request) {
@@ -126,7 +127,9 @@ class AdminController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function createAdminNasabah(Request $request) {
+    public function createAdminNasabah(Request $request) 
+    {
+        $before = Carbon::now('Asia/Jakarta')->subYears(17)->format('Y-m-d');
         $request->validate([
             'nama' => 'required|max:255|min:2',
             'email' => 'required|email|unique:users,email',
@@ -136,11 +139,15 @@ class AdminController extends Controller {
             'nik' => 'required',
             'jenis_kelamin' => 'required',
             'nama_ibu' => 'required',
-            'tgl_lahir' => 'required'
+            'tgl_lahir' => 'required|date|before:'.$before,
+            'foto' => 'file|image'
         ]);
         $encrypted = bcrypt('password');
 
+        $path = Storage::disk('public')->putFile('foto', $request->file('foto'));
+
         $user_id = User::insertGetId([
+            'foto' =>  $path,
             'nama' =>  $request->input('nama'),
             'role' => 'nasabah',
             'email' => $request->input('email'),
@@ -168,7 +175,7 @@ class AdminController extends Controller {
     }
 
     public function showAdminNasabahAdd() {
-        return view('Dashboard.admin page.create admin nasabah');
+        return view('Dashboard.admin.tambah-nasabah');
     }
 
     /**
