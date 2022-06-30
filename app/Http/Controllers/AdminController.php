@@ -20,6 +20,11 @@ class AdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     // view Admin
+    public function show()
+    {
+        return view('setting');
+    }
+
     public function showAdminDashboard() {
         $today = Carbon::now('Asia/Jakarta')->format('Y-m-d');
         $weekStart = Carbon::now('Asia/Jakarta')->format('Y-m-d');

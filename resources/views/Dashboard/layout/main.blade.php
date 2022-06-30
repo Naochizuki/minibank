@@ -82,7 +82,7 @@
                         <div class="menuToggle">
                             <ul class="menuToggle-ul">
                                 <li class="group">
-                                    <a href="/" class="menuToggle-item">
+                                    <a href="{{ url('/setting') }}" class="menuToggle-item">
                                         <div class="icon-menu">
                                             <i class="fa-solid fa-gear icon"></i>
                                         </div>
@@ -90,7 +90,7 @@
                                     </a>
                                 </li>
                                 <li class="group md:hidden">
-                                    <a href="/" class="menuToggle-item">
+                                    <a href="#" class="menuToggle-item">
                                         <div class="icon-menu">
                                             <i class="fa-regular fa-envelope icon"></i>
                                         </div>
@@ -98,7 +98,7 @@
                                     </a>
                                 </li>
                                 <li class="group md:hidden">
-                                    <a href="/" class="menuToggle-item">
+                                    <a href="#" class="menuToggle-item">
                                         <div class="icon-menu">
                                             <i class="fa-regular fa-bell icon"></i>
                                         </div>
@@ -109,16 +109,16 @@
                             <div class="btn-dark-container">
                                 @include('partials.dark mode toggle')
                             </div>
+                            <a href="{{ url('/logout') }}">
                             <div class="btn-container group">
-                                <a href="{{ url('/logout') }}">
                                 <button class="btn">
                                     <div class="icon-menu">
                                         <i class="fa-solid fa-right-from-bracket icon"></i>
                                     </div>
                                         <p class="menu-name">Log out</p>
                                     </button>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>

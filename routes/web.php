@@ -7,6 +7,7 @@ use App\Http\Controllers\NasabahController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CSController;
 use App\Http\Controllers\TellerController;
+use App\Http\Controllers\SetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,24 +75,18 @@ Route::group(['middleware' => ['web']], function() {
         Route::post('/update1/{user}','updateteller')->name('update');
         Route::post('/delete1/{user}','destroyteller')->name('destroy');
     });
+
+    Route::controller(SetController::class)->prefix('setting')->name('setting.')->group(function () {
+        Route::get('/', 'show')->name('setting');
+        Route::get('profile', 'showProfile')->name('settingProfile');
+        Route::post('profile', 'updateProfile')->name('settingUpdateProfile');
+        Route::get('password', 'showPassword')->name('settingPassword');
+        Route::post('password', 'updatePassword')->name('settingUpdatePassword');
+    });
     
     Route::get("/", [LoginController::class, "show"]);
     Route::get("/login", [LoginController::class, "show"]);
     Route::get("/register", [RegisterController::class, "show"])->name('register');
-    
-    // Route::get("/admindashboard", [AdminController::class, "showAdminDashboard"])->name("admindashboard");
-    // Route::get("/admindashboard/bank", [AdminController::class, "showAdminBank"])->name("admindashboard`.bank");
-    // Route::get("/admindashboard/nasabah", [AdminController::class, "showAdminNasabah"])->name("admindashboard.nasabah");
-    // Route::get("/admindashboard/nasabah/create", [AdminController::class, "createAdminNasabah"])->name("admindashboard.nasabah.create");
-    // Route::get("/admindashboard/cs", [AdminController::class, "showAdminCs"])->name("admindashboard.cs");
-    // Route::get("/admindashboard/teller", [AdminController::class, "showAdminTeller"])->name("admindashboard.teller");
-    
-    Route::get("/csdashboard", [NasabahController::class, "showCsDashboard"])->name("csdashboard");
-    Route::get("/csdashboard/tambahakun", [NasabahController::class, "showCsTambahAkun"])->name("csdashboard.tambahakun");
-    Route::get("/csdashboard/tambahrekening", [NasabahController::class, "showCsTambahRekening"])->name("csdashboard.tambahrekening");
-    Route::get("/tellerdashboard", [NasabahController::class, "showTellerDashboard"])->name("tellerdashboard");
-    Route::get("/tellerdashboard/transaksi", [NasabahController::class, "showTellerTransaksi"])->name("tellerdashboard.transaksi");
-    Route::get("/tellerdashboard/mutasi", [NasabahController::class, "showTellerMutasi"])->name("tellerdashboard.mutasi");
     
     //for insert new register
     Route::post('create', 'App\Http\Controllers\Auth\RegisterController@store');
